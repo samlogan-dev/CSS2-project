@@ -15,6 +15,7 @@ All three pipelines share the same ChromaDB vector store, document corpus, Claud
 ## Setup
 
 ```bash
+source venv/bin/activate
 pip install -r requirements.txt
 export ANTHROPIC_API_KEY=your_key_here
 ```
