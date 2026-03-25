@@ -3,5 +3,6 @@ venv/
 __pycache__/
 *.pyc
 .chroma/
+chroma_db/
 evaluation/results.json
 CLAUDE.md

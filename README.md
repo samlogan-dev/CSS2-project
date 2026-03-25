@@ -14,11 +14,53 @@ All three pipelines share the same ChromaDB vector store, document corpus, Claud
 
 ## Setup
 
+### Prerequisites
+
+- Python 3.10+
+- An [Anthropic API key](https://console.anthropic.com/)
+
+### 1. Clone and enter the repo
+
 ```bash
-source venv/bin/activate
-pip install -r requirements.txt
-export ANTHROPIC_API_KEY=your_key_here
+git clone <repo-url>
+cd CSS2-project
 ```
+
+### 2. Create a virtual environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate        # macOS/Linux
+# venv\Scripts\activate         # Windows
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+> First install may take a few minutes — `sentence-transformers` downloads the embedding model (~90 MB) on first use.
+
+### 4. Create your `.env` file
+
+```bash
+cp .env.example .env
+```
+
+Open `.env` and replace the placeholder with your real key:
+
+```
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+```
+
+### 5. Build the vector store
+
+```bash
+python main.py ingest
+```
+
+This loads all documents from `docs/`, chunks and embeds them, and writes the ChromaDB index to `chroma_db/`. You only need to run this once (or again if `docs/` changes).
 
 ## Usage
 
