@@ -1,0 +1,182 @@
+[
+  {
+    "id": "HQA01",
+    "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+    "expected_answer": "Chief of Protocol",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Kiss and Tell (1945 film)', 'Shirley Temple', 'Shirley Temple'],\n      dtype=object), 'sent_id': array([0, 0, 1], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA02",
+    "question": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+    "expected_answer": "Animorphs",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['The Hork-Bajir Chronicles', 'The Hork-Bajir Chronicles',\n       'The Hork-Bajir Chronicles', 'Animorphs', 'Animorphs'],\n      dtype=object), 'sent_id': array([0, 1, 2, 0, 1], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA03",
+    "question": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+    "expected_answer": "Greenwich Village, New York City",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Big Stone Gap (film)', 'Adriana Trigiani'], dtype=object), 'sent_id': array([0, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA04",
+    "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+    "expected_answer": "YG Entertainment",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['2014 S/S', 'Winner (band)'], dtype=object), 'sent_id': array([0, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA05",
+    "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+    "expected_answer": "Eenasul Fateh",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Eenasul Fateh', 'Management consulting'], dtype=object), 'sent_id': array([0, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA06",
+    "question": "The arena where the Lewiston Maineiacs played their home games can seat how many people?",
+    "expected_answer": "3,677 seated",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Lewiston Maineiacs', 'Androscoggin Bank Colisée'], dtype=object), 'sent_id': array([1, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA07",
+    "question": "Who is older, Annie Morton or Terry Richardson?",
+    "expected_answer": "Terry Richardson",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Annie Morton', 'Annie Morton', 'Terry Richardson'], dtype=object), 'sent_id': array([0, 2, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA08",
+    "question": "What is the name of the fight song of the university whose main campus is in Lawrence, Kansas and whose branch campuses are in the Kansas City metropolitan area?",
+    "expected_answer": "Kansas Song",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Kansas Song', 'University of Kansas', 'University of Kansas'],\n      dtype=object), 'sent_id': array([0, 1, 2], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA09",
+    "question": "What screenwriter with credits for \"Evolution\" co-wrote a film starring Nicolas Cage and Téa Leoni?",
+    "expected_answer": "David Weissman",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['David Weissman', 'David Weissman', 'The Family Man'], dtype=object), 'sent_id': array([0, 1, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA10",
+    "question": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+    "expected_answer": "1999",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array([\"Oh My God (Guns N' Roses song)\", \"Oh My God (Guns N' Roses song)\",\n       'End of Days (film)'], dtype=object), 'sent_id': array([0, 1, 1], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA11",
+    "question": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+    "expected_answer": "from 1986 to 2013",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['1995–96 Manchester United F.C. season',\n       '1995–96 Manchester United F.C. season', 'Alex Ferguson'],\n      dtype=object), 'sent_id': array([2, 3, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA12",
+    "question": "Brown State Fishing Lake is in a country that has a population of how many inhabitants ?",
+    "expected_answer": "9,984",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Brown State Fishing Lake', 'Brown County, Kansas'], dtype=object), 'sent_id': array([0, 1], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA13",
+    "question": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+    "expected_answer": "the North Atlantic Conference",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array([\"Vermont Catamounts men's soccer\",\n       \"Vermont Catamounts men's soccer\", 'America East Conference'],\n      dtype=object), 'sent_id': array([0, 1, 1], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA14",
+    "question": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+    "expected_answer": "1969 until 1974",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Roger O. Egeberg', 'Richard Nixon'], dtype=object), 'sent_id': array([2, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA15",
+    "question": "Which other Mexican Formula One race car driver has held the podium besides the Force India driver born in 1990?",
+    "expected_answer": "Pedro Rodríguez",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Formula One drivers from Mexico',\n       'Formula One drivers from Mexico', 'Sergio Pérez'], dtype=object), 'sent_id': array([1, 2, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA16",
+    "question": "This singer of A Rather Blustery Day also voiced what hedgehog?",
+    "expected_answer": "Sonic",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['A Rather Blustery Day', 'Jim Cummings'], dtype=object), 'sent_id': array([1, 1], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA17",
+    "question": "Aside from the Apple Remote, what other device can control the program Apple Remote was originally designed to interact with?",
+    "expected_answer": "keyboard function keys",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Apple Remote', 'Apple Remote', 'Front Row (software)',\n       'Front Row (software)'], dtype=object), 'sent_id': array([0, 1, 0, 1], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA18",
+    "question": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+    "expected_answer": "World's Best Goalkeeper",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array(['Kasper Schmeichel', 'Kasper Schmeichel', 'Peter Schmeichel'],\n      dtype=object), 'sent_id': array([0, 1, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA19",
+    "question": "Who was the writer of These Boots Are Made for Walkin' and who died in 2007?",
+    "expected_answer": "Barton Lee Hazlewood",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array([\"These Boots Are Made for Walkin'\", 'Lee Hazlewood'], dtype=object), 'sent_id': array([0, 0], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  },
+  {
+    "id": "HQA20",
+    "question": "The 2011–12 VCU Rams men's basketball team, led by third year head coach Shaka Smart, represented Virginia Commonwealth University which was founded in what year?",
+    "expected_answer": "1838",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": "{'title': array([\"2011–12 VCU Rams men's basketball team\",\n       'Virginia Commonwealth University'], dtype=object), 'sent_id': array([2, 1], dtype=int32)}",
+    "source": "HotpotQA distractor validation set (Yang et al., 2018)"
+  }
+]
