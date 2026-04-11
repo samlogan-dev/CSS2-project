@@ -1,0 +1,151 @@
+{
+  "dataset_name": "EnterpriseQA-Mock v1.0",
+  "description": "A synthetic enterprise knowledge-base benchmark requiring multi-hop reasoning across HR policy documents, employee records, and IT support tickets.",
+  "data_sources": [
+    "hr_policies.txt",
+    "employee_records.csv",
+    "it_tickets.csv"
+  ],
+  "queries": [
+    {
+      "id": "Q01",
+      "level": "L1",
+      "complexity": "Single-hop",
+      "sources_required": ["hr_policies.txt"],
+      "question": "According to company policy, what is the maximum number of remote work days per week that a Level 3 employee is entitled to?",
+      "expected_answer": "3 days per week. Policy Section 1.1 states that Level 3 and above employees may work remotely up to 3 days per week, subject to a minimum performance rating of 3.",
+      "evaluation_notes": "A correct answer requires reading Section 1.1 of hr_policies.txt. Hallucination flag if agent states a number other than 3 or adds unsupported conditions."
+    },
+    {
+      "id": "Q02",
+      "level": "L1",
+      "complexity": "Single-hop",
+      "sources_required": ["hr_policies.txt"],
+      "question": "How many days of annual leave does an employee with 7 years of tenure accrue per year under company policy?",
+      "expected_answer": "22 days per year. Policy Section 2.1 specifies the 5–10 year tenure bracket accrues at 22 days per year (1.83 days/month).",
+      "evaluation_notes": "Correct bracket is 5–10 years. Hallucination flag if agent says 18 (2-5yr bracket) or 25 (10+ bracket)."
+    },
+    {
+      "id": "Q03",
+      "level": "L1",
+      "complexity": "Single-hop",
+      "sources_required": ["employee_records.csv"],
+      "question": "What is the current annual leave balance for employee Sam Logan (EMP1019)?",
+      "expected_answer": "Sam Logan's current leave balance is 6.0 days.",
+      "evaluation_notes": "Direct lookup in employee_records.csv. EMP1019 = Sam Logan, leave_balance = 6.0."
+    },
+    {
+      "id": "Q04",
+      "level": "L1",
+      "complexity": "Single-hop",
+      "sources_required": ["it_tickets.csv"],
+      "question": "List all currently OPEN IT support tickets with a priority of HIGH or CRITICAL.",
+      "expected_answer": "TKT0001 (EMP1005, Security Incident, HIGH, OPEN) and TKT0005 (EMP1033, IT Access Upgrade, CRITICAL, OPEN).",
+      "evaluation_notes": "Requires filtering it_tickets.csv by status=OPEN AND priority IN (HIGH, CRITICAL). Only TKT0001 and TKT0005 match."
+    },
+    {
+      "id": "Q05",
+      "level": "L1",
+      "complexity": "Single-hop",
+      "sources_required": ["hr_policies.txt"],
+      "question": "What is the standard laptop model issued to employees in the Engineering department?",
+      "expected_answer": "Engineering department employees receive a MacBook Pro M3 (16-inch, 36GB RAM) as standard, per Policy Section 3.1.",
+      "evaluation_notes": "Hallucination flag if agent says Dell Latitude (that is the non-Engineering/DS default)."
+    },
+    {
+      "id": "Q06",
+      "level": "L2",
+      "complexity": "Two-hop",
+      "sources_required": ["employee_records.csv", "hr_policies.txt"],
+      "question": "Is Emma Wilson (EMP1005) eligible for remote work? Provide a policy-grounded explanation.",
+      "expected_answer": "No. Emma Wilson is Level 4 with a review rating of 3 (which meets the rating threshold), but her IT access level is RESTRICTED. Policy Section 1.1 states that RESTRICTED employees cannot work remotely until access is upgraded. Her employee record confirms remote_eligible = False.",
+      "evaluation_notes": "Requires cross-referencing employee record (it_access_level=RESTRICTED) with policy (Section 1.1 and 5.3). Hallucination flag if agent says she is eligible."
+    },
+    {
+      "id": "Q07",
+      "level": "L2",
+      "complexity": "Two-hop",
+      "sources_required": ["employee_records.csv", "hr_policies.txt"],
+      "question": "How many Finance department employees can be on approved leave simultaneously under company policy, given the current Finance headcount?",
+      "expected_answer": "At most 1 employee at a time. The Finance department has 7 employees. Policy Section 2.3 limits simultaneous leave to 20% of department headcount: 20% of 7 = 1.4, rounded down to 1 employee.",
+      "evaluation_notes": "Requires counting Finance employees from the CSV (7) and applying the 20% rule from policy. Hallucination flag for any number other than 1."
+    },
+    {
+      "id": "Q08",
+      "level": "L2",
+      "complexity": "Two-hop",
+      "sources_required": ["employee_records.csv", "hr_policies.txt"],
+      "question": "Which employees in the Engineering department are currently eligible for remote work, and how many remote days per week are they entitled to?",
+      "expected_answer": "Only Carlos Harris (EMP1029) is remote-eligible in Engineering (Level 5, rating 3, ELEVATED access). He is entitled to 3 remote days per week per Policy Section 1.1. Note: Engineering is not the Operations department so the 1-day Operations restriction does not apply.",
+      "evaluation_notes": "Must filter Engineering employees by remote_eligible=True from CSV. Only EMP1029 matches. Policy grants 3 days for Level 3+."
+    },
+    {
+      "id": "Q09",
+      "level": "L2",
+      "complexity": "Two-hop",
+      "sources_required": ["it_tickets.csv", "hr_policies.txt"],
+      "question": "Does Harry Brown (EMP1008) have any open IT tickets that would trigger a suspension of remote work access under company policy?",
+      "expected_answer": "Harry Brown has one IT ticket in progress (TKT0004, Hardware - Laptop Upgrade, MEDIUM priority). Policy Section 1.3 and 5.4 only suspend remote access for HIGH or CRITICAL priority open tickets. TKT0004 is MEDIUM, so it does not trigger a remote work suspension. However, his employee record separately shows remote_eligible=False due to a performance rating of 2.",
+      "evaluation_notes": "Agent must check ticket priority (MEDIUM = no suspension trigger) and cite policy threshold (HIGH/CRITICAL). Hallucination if agent says the MEDIUM ticket suspends access."
+    },
+    {
+      "id": "Q10",
+      "level": "L2",
+      "complexity": "Two-hop",
+      "sources_required": ["employee_records.csv", "hr_policies.txt"],
+      "question": "What laptop model should Liam Garcia (EMP1012) be using, and is he entitled to a secondary monitor?",
+      "expected_answer": "Liam Garcia is in the Finance department (not Engineering or Data Science), so he receives a Dell Latitude 5540 (15-inch, i7, 16GB RAM) per Policy Section 3.1. He is Level 4, which entitles him to one additional 27-inch 4K monitor per Section 3.3. Note: his RESTRICTED access status means he cannot currently work remotely, but the monitor entitlement is based on level, not remote eligibility.",
+      "evaluation_notes": "Requires matching department to laptop model (Finance = Dell) and level to peripheral entitlement (L4 = monitor). Both from policy cross-referenced against employee record."
+    },
+    {
+      "id": "Q11",
+      "level": "L3",
+      "complexity": "Three-hop",
+      "sources_required": ["employee_records.csv", "it_tickets.csv", "hr_policies.txt"],
+      "question": "George Mitchell's (EMP1033) employee record shows remote_eligible=True. Is this accurate given his full policy and ticket status? Provide a detailed justification.",
+      "expected_answer": "No, this is inaccurate. George Mitchell (EMP1033) has an OPEN CRITICAL IT ticket (TKT0005: IT Access Upgrade). Policy Section 1.3 states that employees with open HIGH or CRITICAL priority tickets cannot be granted remote work access until those tickets are resolved. Policy Section 5.4 further states that such employees face temporary suspension of remote access. Despite his employee record showing remote_eligible=True (which may not have been updated after the ticket was opened), the current policy-compliant status is NOT eligible for remote work.",
+      "evaluation_notes": "This is the most critical L3 query. Requires: (1) reading employee record (remote_eligible=True), (2) querying IT tickets for EMP1033 and finding TKT0005 (OPEN, CRITICAL), (3) cross-referencing with policy Sections 1.3 and 5.4. A naive RAG system would only see the employee record and answer Yes. The agentic system should catch the contradiction."
+    },
+    {
+      "id": "Q12",
+      "level": "L3",
+      "complexity": "Three-hop",
+      "sources_required": ["employee_records.csv", "it_tickets.csv", "hr_policies.txt"],
+      "question": "If Sam Logan (EMP1019) and Zoe Young (EMP1026) both submit simultaneous leave requests for the same period, should the manager approve both requests? Reference all relevant policy constraints.",
+      "expected_answer": "No, the manager should not approve both simultaneously. The Finance department has 7 employees (confirmed from employee records). Policy Section 2.3 caps simultaneous leave at 20% of department headcount: 20% of 7 = 1.4, which rounds to a maximum of 1 employee. Two simultaneous leave requests would represent 28.6% (2/7), exceeding the policy threshold. The manager must approve one and place the other on the waitlist. Note: both employees have sufficient leave balances (Sam: 6.0 days, Zoe: 5.3 days) so balance is not the limiting factor.",
+      "evaluation_notes": "Requires: (1) counting Finance headcount from employee CSV, (2) computing 20% threshold from policy, (3) checking individual leave balances. Three data points across all sources."
+    },
+    {
+      "id": "Q13",
+      "level": "L3",
+      "complexity": "Three-hop",
+      "sources_required": ["employee_records.csv", "it_tickets.csv", "hr_policies.txt"],
+      "question": "How many remote work days per week is Grace Kim (EMP1007) entitled to? Consider her department, level, performance rating, IT access level, and any open IT tickets.",
+      "expected_answer": "Grace Kim is entitled to 3 remote days per week. She is Level 3, rating 4, STANDARD access, in the Sales department, with 8.9 years tenure. All remote work eligibility criteria are met: Level 3+ (yes), rating >= 3 (4 = yes), not RESTRICTED (yes), tenure >= 1 year (yes). She is not in the Operations department (where the 1-day cap applies). A review of IT tickets shows no OPEN HIGH/CRITICAL tickets for EMP1007. Therefore, full entitlement of 3 days per week applies.",
+      "evaluation_notes": "Requires: (1) reading employee record for Grace Kim, (2) checking IT tickets for any open HIGH/CRITICAL tickets for EMP1007 (none found), (3) applying multi-condition policy check. Correct answer is 3 days."
+    },
+    {
+      "id": "Q14",
+      "level": "L3",
+      "complexity": "Three-hop",
+      "sources_required": ["employee_records.csv", "it_tickets.csv", "hr_policies.txt"],
+      "question": "What is the total combined leave balance of Finance department employees who are (a) remote-eligible per their employee record AND (b) have no currently OPEN HIGH or CRITICAL IT support tickets?",
+      "expected_answer": "The qualifying Finance employees are: Sam Logan (EMP1019, 6.0 days), Zoe Young (EMP1026, 5.3 days), and Ulrich Morgan (EMP1047, 7.2 days). George Mitchell (EMP1033) is excluded because he has an OPEN CRITICAL ticket (TKT0005). Total combined leave balance = 6.0 + 5.3 + 7.2 = 18.5 days.",
+      "evaluation_notes": "Requires: (1) filtering Finance employees with remote_eligible=True (EMP1019, EMP1026, EMP1033, EMP1047), (2) cross-referencing IT tickets to exclude EMP1033 (OPEN CRITICAL TKT0005), (3) summing leave balances of remaining 3 employees. Expected sum = 18.5 days."
+    },
+    {
+      "id": "Q15",
+      "level": "L3",
+      "complexity": "Three-hop",
+      "sources_required": ["hr_policies.txt", "employee_records.csv", "it_tickets.csv"],
+      "question": "Which employees are currently subject to an In-Office Performance Improvement Plan (IPIP) under company policy, and do any of these employees have open IT support tickets?",
+      "expected_answer": "Per Policy Section 1.1, employees with a last review rating below 3 (i.e., rating of 1 or 2) are placed on an IPIP. Employees with rating=2 in the records: Bob Patel (EMP1002, rating=2), David Lee (EMP1004, rating=2), and Harry Brown (EMP1008, rating=2). Checking IT tickets: Harry Brown (EMP1008) has TKT0004 (Hardware - Laptop Upgrade, IN PROGRESS, MEDIUM priority). Bob Patel and David Lee have no open tickets. Summary: 3 employees are on IPIP; one of them (Harry Brown) has an active IT ticket.",
+      "evaluation_notes": "Requires: (1) applying policy threshold (rating < 3 = IPIP), (2) filtering employee records for employees with rating <= 2, (3) checking IT tickets for each identified employee. Hallucination flag if agent identifies wrong employees or wrong ticket details."
+    }
+  ],
+  "scoring_rubric": {
+    "task_completion": "Binary 0/1. Score 1 if the answer contains all expected key facts and reaches the correct conclusion. Score 0 if any critical fact is wrong or the final answer is incorrect.",
+    "hallucination": "Binary 0/1 per response. Score 1 (hallucination present) if the response contains any claim not supported by the source data, e.g., invented employee names, wrong policy thresholds, or fabricated ticket details.",
+    "partial_credit": "For L3 queries, note in your log whether the agent correctly identified 1, 2, or all 3 required data sources — this is useful for ablation analysis."
+  }
+}
