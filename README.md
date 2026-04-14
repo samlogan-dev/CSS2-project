@@ -68,15 +68,54 @@ This loads all documents from `docs/`, chunks and embeds them, and writes the Ch
 python main.py ingest                                    # build the vector store
 python main.py query "your question" --pipeline naive    # naive | chain | agentic
 python main.py evaluate                                  # run all pipelines on the test set
+python main.py evaluate --write-results                  # also save per-query results to JSON
 ```
+
+The `query` command prints the answer, cited sources, the final ranked chunks with relevance scores, and (for `agentic`) how many reformulation iterations were used.
 
 ## Evaluation Metrics
 
-- **NDCG@10** — ranking quality
-- **MRR** — position of first relevant result
-- **Precision@5** — fraction of top 5 that are relevant
+All metrics are computed on each pipeline's **final reranked list** — the 5 chunks that are actually passed to the LLM for synthesis.
 
-Results are printed as a side-by-side comparison table and optionally saved to `evaluation/results.json`.
+- **NDCG@5** — ranking quality (ideal DCG is the DCG of the observed relevance vector sorted descending)
+- **MRR** — reciprocal rank of the first relevant chunk
+- **Precision@5** — fraction of the top 5 chunks whose source is in the query's `expected_doc_ids`
+
+A chunk is considered "relevant" iff its source file appears in the query's `expected_doc_ids`.
+
+Results are printed as an overall side-by-side table plus a per-difficulty breakdown (easy / medium / hard) and are optionally saved to `evaluation/results.json` via `--write-results`.
+
+## Test Set
+
+`evaluation/test_set.json` contains 26 manually authored queries:
+
+- **10 easy** — single-doc factual lookups (e.g. "How many days of paid annual leave do full-time employees get?")
+- **10 medium** — queries where the correct document must be selected from several plausible candidates
+- **6 hard** — multi-doc synthesis queries whose answer spans two or more source files
+
+Each entry has `id`, `difficulty`, `query`, `expected_doc_ids`, and a human-readable `ground_truth_answer`.
+
+## Repo Layout
+
+```
+CSS2-project/
+├── docs/                  # enterprise knowledge base (markdown)
+├── ingest.py              # chunk + embed docs → ChromaDB
+├── chroma_db/             # persisted vector store (built by ingest)
+├── shared/
+│   ├── retrieve.py        # ChromaDB vector search
+│   ├── rerank.py          # cross-encoder re-ranking
+│   └── synthesise.py      # Claude API call
+├── pipelines/
+│   ├── naive.py           # Pipeline 1: plain Python
+│   ├── rag_chain.py       # Pipeline 2: LangGraph linear
+│   └── agentic.py         # Pipeline 3: LangGraph + reformulation loop
+├── evaluation/
+│   ├── test_set.json      # 26 query entries
+│   └── evaluate.py        # runs all pipelines + computes metrics
+├── main.py                # CLI entry point
+└── requirements.txt
+```
 
 ## Requirements
 

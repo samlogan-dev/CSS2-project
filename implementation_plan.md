@@ -1,5 +1,7 @@
 # Implementation Plan
 
+> **Status:** All five phases are complete. This document is the original plan preserved for reference, annotated with what was actually built.
+
 ## Overview
 
 Build a single Python repository with one shared knowledge base and test set, then run the same queries through three pipelines of increasing complexity to compare retrieval and answer quality.
@@ -34,26 +36,44 @@ Build a single Python repository with one shared knowledge base and test set, th
 
 ---
 
-## Target Repo Structure
+## Repo Structure (as built)
 
 ```
-project/
-├── docs/                        # sample enterprise knowledge base
+CSS2-project/
+├── docs/                        # enterprise knowledge base (markdown)
 │   ├── policy-leave.md
+│   ├── policy-remote-work.md
+│   ├── policy-expenses.md
+│   ├── policy-code-of-conduct.md
+│   ├── policy-budget.md
 │   ├── runbook-deploy.md
-│   └── ...
+│   ├── runbook-incident-response.md
+│   ├── runbook-database-backup.md
+│   ├── guide-onboarding.md
+│   ├── guide-it-setup.md
+│   ├── faq-hr.md
+│   ├── faq-it.md
+│   ├── faq-finance.md
+│   ├── faq-legal.md
+│   ├── brief-project-atlas.md
+│   ├── brief-project-sentinel.md
+│   ├── brief-project-nova.md
+│   ├── brief-project-meridian.md
+│   └── brief-project-compass.md
 ├── ingest.py                    # chunk + embed docs → ChromaDB
+├── chroma_db/                   # persisted vector store (built by ingest)
 ├── pipelines/
 │   ├── naive.py                 # Pipeline 1: vector search → LLM
-│   ├── rag_chain.py             # Pipeline 2: retrieve → rerank → synthesise
-│   └── agentic.py               # Pipeline 3: Pipeline 2 + query reformulation loop
+│   ├── rag_chain.py             # Pipeline 2: retrieve → rerank → synthesise (LangGraph)
+│   └── agentic.py               # Pipeline 3: Pipeline 2 + reformulation loop (LangGraph)
 ├── shared/
 │   ├── retrieve.py              # ChromaDB vector search (shared by all pipelines)
 │   ├── rerank.py                # cross-encoder re-ranking (Pipelines 2 & 3)
 │   └── synthesise.py            # Claude API call (shared by all pipelines)
 ├── evaluation/
-│   ├── test_set.json            # ground-truth Q&A pairs
-│   └── evaluate.py              # runs all 3 pipelines, computes metrics, outputs comparison
+│   ├── test_set.json            # 26 manually authored query entries
+│   ├── evaluate.py              # runs all 3 pipelines, computes metrics, outputs comparison
+│   └── results.json             # full per-query results (written by --write-results)
 ├── main.py                      # CLI entry point
 ├── requirements.txt
 └── README.md
@@ -61,7 +81,7 @@ project/
 
 ---
 
-## Phase 1: Knowledge Base + Ingestion
+## Phase 1: Knowledge Base + Ingestion ✓ done
 
 **Goal:** Create the document corpus and embed it into ChromaDB.
 
@@ -80,7 +100,7 @@ project/
 
 ---
 
-## Phase 2: Shared Components
+## Phase 2: Shared Components ✓ done
 
 **Goal:** Build the retrieval, re-ranking, and synthesis functions that the pipelines share.
 
@@ -99,7 +119,7 @@ project/
 
 ---
 
-## Phase 3: Pipelines
+## Phase 3: Pipelines ✓ done
 
 **Goal:** Implement the three pipelines using the shared components.
 
@@ -121,35 +141,39 @@ project/
 
 ---
 
-## Phase 4: Evaluation
+## Phase 4: Evaluation ✓ done
 
 **Goal:** Build a test set and run all three pipelines through it.
 
-### 4.1 — Create `evaluation/test_set.json`
-- 20–30 manually authored query–answer pairs
-- Each entry: `{ "query": "...", "expected_doc_ids": ["policy-leave.md"], "ground_truth_answer": "..." }`
-- Mix of easy (single-doc factual), medium (requires correct doc selection), and hard (multi-doc synthesis)
+### 4.1 — `evaluation/test_set.json`
+- **26** manually authored query entries (10 easy, 10 medium, 6 hard)
+- Each entry: `{ "id", "difficulty", "query", "expected_doc_ids", "ground_truth_answer" }`
+- Easy = single-doc factual; medium = correct doc selection required; hard = multi-doc synthesis
 
-### 4.2 — Implement `evaluation/evaluate.py`
-- For each query, run all three pipelines
-- Compare retrieved doc IDs against expected doc IDs
-- Compute per-pipeline:
-  - **NDCG@10** — ranking quality
-  - **MRR** — position of first relevant result
-  - **Precision@5** — fraction of top 5 that are relevant
-- Output a side-by-side comparison table to stdout
-- Optionally write results to `evaluation/results.json`
+### 4.2 — `evaluation/evaluate.py`
+- For each query, runs all three pipelines
+- Computes metrics on each pipeline's **final reranked list** (the 5 chunks that reach the LLM):
+  - **NDCG@5** — ranking quality (ideal DCG = observed relevance vector sorted descending)
+  - **MRR** — reciprocal rank of the first relevant chunk
+  - **Precision@5** — fraction of top 5 whose source is in `expected_doc_ids`
+- A chunk is "relevant" iff its `source` is in `expected_doc_ids`
+- Prints an overall side-by-side table plus per-difficulty breakdown
+- `--write-results` writes full per-query results to `evaluation/results.json`
+
+> Note: the original plan specified NDCG@10. All pipelines return exactly 5 chunks to synthesis, so NDCG@10 reduces to NDCG@5 — renamed to be accurate.
 
 ---
 
-## Phase 5: CLI + Packaging
+## Phase 5: CLI + Packaging ✓ done
 
 ### 5.1 — `main.py`
 ```
-python main.py ingest                          # build the vector store
+python main.py ingest                                    # build the vector store
 python main.py query "question" --pipeline naive|chain|agentic
-python main.py evaluate                        # run all pipelines on test set
+python main.py evaluate [--write-results]                # run all pipelines on test set
 ```
+
+The `query` subcommand prints the answer, source list, the final ranked chunks with scores, and (for `agentic`) the reformulation iteration count.
 
 ### 5.2 — `requirements.txt`
 ```
@@ -158,6 +182,7 @@ langchain-core
 chromadb
 sentence-transformers
 anthropic
+python-dotenv
 ```
 
 ---
@@ -165,15 +190,15 @@ anthropic
 ## Build Order
 
 ```
-Phase 1 (docs + ingest)
+Phase 1 (docs + ingest)      ✓ done
     ↓
-Phase 2 (shared components)
+Phase 2 (shared components)  ✓ done
     ↓
-Phase 3 (three pipelines)    ←  can build 3.1, 3.2, 3.3 in any order
+Phase 3 (three pipelines)    ✓ done
     ↓
-Phase 4 (evaluation)
+Phase 4 (evaluation)         ✓ done
     ↓
-Phase 5 (CLI)
+Phase 5 (CLI)                ✓ done
 ```
 
 ---
