@@ -1,0 +1,189 @@
+{
+  "description": "Evaluation set for RAG pipeline comparison. Each query is tagged with the document(s) that must appear in the retrieved set to be considered correct. Ground-truth answers are for human inspection only — automated metrics use expected_doc_ids.",
+  "queries": [
+    {
+      "id": "E01",
+      "difficulty": "easy",
+      "query": "How many days of paid annual leave do full-time employees get per year?",
+      "expected_doc_ids": ["policy-leave.md"],
+      "ground_truth_answer": "Full-time employees are entitled to 20 days of paid annual leave per calendar year."
+    },
+    {
+      "id": "E02",
+      "difficulty": "easy",
+      "query": "How many days of paid sick leave am I entitled to each year?",
+      "expected_doc_ids": ["policy-leave.md"],
+      "ground_truth_answer": "10 days of paid sick leave per calendar year. Sick leave does not accrue — the entitlement resets on 1 January."
+    },
+    {
+      "id": "E03",
+      "difficulty": "easy",
+      "query": "What is the nightly accommodation cap for business travel in major cities?",
+      "expected_doc_ids": ["policy-expenses.md"],
+      "ground_truth_answer": "$250 AUD per night in major cities ($180 AUD in regional areas). Stays above the cap require prior approval."
+    },
+    {
+      "id": "E04",
+      "difficulty": "easy",
+      "query": "How do I apply for annual leave?",
+      "expected_doc_ids": ["faq-hr.md"],
+      "ground_truth_answer": "Log into the HR portal at hr.internal, navigate to Leave > Apply, and submit your request. Your line manager will approve or decline by email."
+    },
+    {
+      "id": "E05",
+      "difficulty": "easy",
+      "query": "What are the standard production deployment windows?",
+      "expected_doc_ids": ["runbook-deploy.md"],
+      "ground_truth_answer": "Weekdays 10:00 AM – 12:00 PM AEST or 2:00 PM – 4:00 PM AEST. Weekends are avoided unless a critical hotfix is required."
+    },
+    {
+      "id": "E06",
+      "difficulty": "easy",
+      "query": "What is the response SLA for a P1 incident?",
+      "expected_doc_ids": ["runbook-incident-response.md"],
+      "ground_truth_answer": "15 minutes. P1 is a critical severity incident (complete service outage or data loss)."
+    },
+    {
+      "id": "E07",
+      "difficulty": "easy",
+      "query": "When is the daily full database backup scheduled to run?",
+      "expected_doc_ids": ["runbook-database-backup.md"],
+      "ground_truth_answer": "2:00 AM AEST daily. For app-db-prod, WAL archiving also runs continuously with files shipped to S3 every 5 minutes."
+    },
+    {
+      "id": "E08",
+      "difficulty": "easy",
+      "query": "How many days of paid compassionate leave can I take per incident?",
+      "expected_doc_ids": ["policy-leave.md"],
+      "ground_truth_answer": "Up to 3 days of paid compassionate leave per incident for death or serious illness of an immediate family member."
+    },
+    {
+      "id": "E09",
+      "difficulty": "easy",
+      "query": "What are the core hours I must be reachable during?",
+      "expected_doc_ids": ["policy-remote-work.md"],
+      "ground_truth_answer": "10:00 AM – 3:00 PM local time, regardless of location. Outside core hours, flexible scheduling is permitted."
+    },
+    {
+      "id": "E10",
+      "difficulty": "easy",
+      "query": "What is the per-kilometre reimbursement rate for using my personal vehicle for business?",
+      "expected_doc_ids": ["policy-expenses.md"],
+      "ground_truth_answer": "$0.88 per km, the ATO approved rate. Employees must log start and end points of each journey."
+    },
+
+    {
+      "id": "M01",
+      "difficulty": "medium",
+      "query": "How long do I have to submit an expense claim after the expense was incurred?",
+      "expected_doc_ids": ["policy-expenses.md"],
+      "ground_truth_answer": "Within 60 days. Claims submitted later will not be reimbursed without written approval from the Finance Director."
+    },
+    {
+      "id": "M02",
+      "difficulty": "medium",
+      "query": "What internet speed do I need at home to be eligible for remote work?",
+      "expected_doc_ids": ["policy-remote-work.md"],
+      "ground_truth_answer": "At least 25 Mbps download and 10 Mbps upload."
+    },
+    {
+      "id": "M03",
+      "difficulty": "medium",
+      "query": "How long are database backups retained?",
+      "expected_doc_ids": ["runbook-database-backup.md"],
+      "ground_truth_answer": "30 days for full backups, 7 days for WAL archives. Backups are stored in the company-db-backups S3 bucket in ap-southeast-2."
+    },
+    {
+      "id": "M04",
+      "difficulty": "medium",
+      "query": "What is the process for declaring a critical production incident on Slack?",
+      "expected_doc_ids": ["runbook-incident-response.md"],
+      "ground_truth_answer": "Post in #incidents with the declaration template (severity, service, summary, impact, declared by), then page the on-call engineer via PagerDuty if they haven't responded."
+    },
+    {
+      "id": "M05",
+      "difficulty": "medium",
+      "query": "How much notice do I need to give before taking a full week off?",
+      "expected_doc_ids": ["policy-leave.md"],
+      "ground_truth_answer": "At least 10 business days in advance, because a week is 4 or more consecutive days. Requests of 1–3 days need 5 business days' notice."
+    },
+    {
+      "id": "M06",
+      "difficulty": "medium",
+      "query": "What should I do if my work laptop is lost or stolen?",
+      "expected_doc_ids": ["faq-it.md"],
+      "ground_truth_answer": "Immediately contact IT on the after-hours line (+61 2 XXXX XXXX) — do not wait until business hours. IT will remotely wipe the device and revoke credentials. Also report to your line manager within 1 hour."
+    },
+    {
+      "id": "M07",
+      "difficulty": "medium",
+      "query": "How much can unused annual leave be carried into the next year?",
+      "expected_doc_ids": ["policy-leave.md"],
+      "ground_truth_answer": "Up to 5 days. Any balance above 5 days is forfeited on 31 December unless a written exemption has been granted."
+    },
+    {
+      "id": "M08",
+      "difficulty": "medium",
+      "query": "What version control tag format is used for production releases?",
+      "expected_doc_ids": ["runbook-deploy.md"],
+      "ground_truth_answer": "Semantic Versioning (MAJOR.MINOR.PATCH). Tags are created with `git tag -a v<version>` and pushed to origin before triggering the deploy-production pipeline."
+    },
+    {
+      "id": "M09",
+      "difficulty": "medium",
+      "query": "Can I use my personal laptop for work?",
+      "expected_doc_ids": ["faq-it.md"],
+      "ground_truth_answer": "Only if it meets the security requirements in the Remote Work Policy. Contact IT to have the device assessed and approved before use. Unapproved personal devices must not connect to internal systems or store company data."
+    },
+    {
+      "id": "M10",
+      "difficulty": "medium",
+      "query": "What is the default hybrid working arrangement for employees?",
+      "expected_doc_ids": ["policy-remote-work.md"],
+      "ground_truth_answer": "3 days on-site and 2 days remote per week. Specific on-site days are agreed between the employee and their line manager."
+    },
+
+    {
+      "id": "H01",
+      "difficulty": "hard",
+      "query": "Before running a schema migration in production, what backup steps do I need to complete as part of the deployment process?",
+      "expected_doc_ids": ["runbook-deploy.md", "runbook-database-backup.md"],
+      "ground_truth_answer": "The pre-deployment checklist in runbook-deploy.md requires the database migration plan to be reviewed and a manual full backup to be taken. The manual backup procedure (pg_dump, upload to S3 at company-db-backups/app-db-prod/pre-migration/) is in runbook-database-backup.md, and the S3 path must be recorded in the deployment PR."
+    },
+    {
+      "id": "H02",
+      "difficulty": "hard",
+      "query": "I'm a new employee. When can I start working remotely, and what are the eligibility requirements?",
+      "expected_doc_ids": ["policy-remote-work.md", "guide-onboarding.md"],
+      "ground_truth_answer": "New employees must work on-site full-time during their first 3 months (per both the onboarding guide and the remote work policy). After 3 months of continuous employment, employees can apply for the hybrid model provided they are not on a performance improvement plan, have a suitable home environment (25/10 Mbps internet, dedicated workspace), and are not in a role requiring on-site presence."
+    },
+    {
+      "id": "H03",
+      "difficulty": "hard",
+      "query": "I'm setting up my home office. What is the allowance and how do I claim it back?",
+      "expected_doc_ids": ["policy-remote-work.md", "policy-expenses.md"],
+      "ground_truth_answer": "The company provides a one-time $500 remote work allowance for home office setup (per policy-remote-work.md). The claim is made via the standard expense process: submit receipts via the Finance portal at finance.internal/expenses within 60 days of purchase, per policy-expenses.md."
+    },
+    {
+      "id": "H04",
+      "difficulty": "hard",
+      "query": "How do I report a concern about a colleague's behaviour and what happens after I report it?",
+      "expected_doc_ids": ["policy-code-of-conduct.md", "faq-hr.md"],
+      "ground_truth_answer": "You can speak to your line manager, contact People & Culture directly at people@company.com, or use the anonymous reporting tool in the HR portal (per faq-hr.md). All reports are treated confidentially and the Code of Conduct policy defines how investigations are conducted."
+    },
+    {
+      "id": "H05",
+      "difficulty": "hard",
+      "query": "My account has been compromised — what is the immediate process and how is this handled as a security incident?",
+      "expected_doc_ids": ["faq-it.md", "runbook-incident-response.md"],
+      "ground_truth_answer": "Contact the IT helpdesk immediately by phone (+61 2 XXXX XXXX). This is treated as a P1 security incident (per faq-it.md), which triggers the full incident response process defined in runbook-incident-response.md: declare in #incidents, assign an Incident Commander and Comms Lead, create an inc- channel, investigate, mitigate, and resolve."
+    },
+    {
+      "id": "H06",
+      "difficulty": "hard",
+      "query": "I'm expecting a baby. Who do I contact about parental leave and how much notice do I need to give?",
+      "expected_doc_ids": ["policy-leave.md", "faq-hr.md"],
+      "ground_truth_answer": "Contact People & Culture at people@company.com at least 8 weeks before the intended start date (per both policy-leave.md and faq-hr.md). Primary carers receive 16 weeks of paid leave; secondary carers receive 4 weeks. Leave must commence within 12 months of the birth or adoption."
+    }
+  ]
+}
