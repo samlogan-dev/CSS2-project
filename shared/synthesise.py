@@ -8,11 +8,8 @@ import os
 from dataclasses import dataclass
 
 from anthropic import Anthropic
-from dotenv import load_dotenv
 
 from shared.retrieve import RetrievedChunk
-
-load_dotenv()
 
 CLAUDE_MODEL = "claude-haiku-4-5"
 MAX_TOKENS = 1024

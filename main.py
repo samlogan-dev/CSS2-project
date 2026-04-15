@@ -14,6 +14,9 @@ Commands:
 
 import argparse
 import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def cmd_ingest(_: argparse.Namespace) -> None:
