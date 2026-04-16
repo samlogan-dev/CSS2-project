@@ -15,8 +15,10 @@ _encoder: CrossEncoder | None = None
 
 
 def _get_encoder() -> CrossEncoder:
+    """Lazy-load the cross-encoder model to save memory."""
     global _encoder
     if _encoder is None:
+        print(f"[Reranker] Loading model: {RERANK_MODEL} ...")
         _encoder = CrossEncoder(RERANK_MODEL)
     return _encoder
 
@@ -45,5 +47,6 @@ def rerank(
         for chunk, score in zip(chunks, scores)
     ]
 
+    # Sort chunks by cross-encoder score (highest first)
     rescored.sort(key=lambda c: c.score, reverse=True)
     return rescored[:n]

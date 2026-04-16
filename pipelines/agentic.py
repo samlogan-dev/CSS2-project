@@ -68,6 +68,7 @@ def _get_client() -> Anthropic:
 
 
 def _reformulate(original_query: str) -> str:
+    print(f"[Agentic] Reformulating query: '{original_query}'")
     client = _get_client()
     response = client.messages.create(
         model=REFORMULATE_MODEL,
@@ -81,7 +82,9 @@ def _reformulate(original_query: str) -> str:
         ],
     )
     text = "".join(block.text for block in response.content if block.type == "text")
-    return text.strip().splitlines()[0] if text.strip() else original_query
+    new_query = text.strip().splitlines()[0] if text.strip() else original_query
+    print(f"[Agentic] New query generated: '{new_query}'")
+    return new_query
 
 
 def _retrieve_node(state: AgenticState) -> AgenticState:
@@ -109,13 +112,20 @@ def _decide_after_rerank(state: AgenticState) -> str:
     iterations = state.get("iterations", 0)
 
     if not reranked:
+        print("[Router] No chunks retrieved. Routing to Synthesise.")
         return "synthesise"
 
     top_score = reranked[0].score
+    print(f"[Router] Iteration {iterations} | Top Rerank Score: {top_score:.3f} | Threshold: {SCORE_THRESHOLD}")
+
     if top_score >= SCORE_THRESHOLD:
+        print("[Router] Confidence threshold met. Routing to Synthesise.")
         return "synthesise"
     if iterations >= MAX_RETRIES:
+        print(f"[Router] Max retries ({MAX_RETRIES}) reached. Routing to Synthesise.")
         return "synthesise"
+        
+    print("[Router] Confidence low. Routing to Reformulate.")
     return "reformulate"
 
 
