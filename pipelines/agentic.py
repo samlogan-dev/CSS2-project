@@ -3,14 +3,14 @@ agentic.py — Pipeline 3.
 
 LangGraph graph with conditional edges.
 Same as Pipeline 2, but: if the top re-ranked chunk score < threshold,
-reformulate the query via Claude and retry. Max 2 retries.
+reformulate the query via GPT-4o and retry. Max 2 retries.
 """
 
 import os
 from dataclasses import dataclass
 from typing import TypedDict
 
-from anthropic import Anthropic
+from openai import OpenAI
 from dotenv import load_dotenv
 from langgraph.graph import StateGraph, END
 
@@ -20,11 +20,12 @@ from shared.synthesise import synthesise, Answer
 
 load_dotenv()
 
-RETRIEVE_K = 20
-RERANK_N = 5
-SCORE_THRESHOLD = 0.0
-MAX_RETRIES = 2
-REFORMULATE_MODEL = "claude-haiku-4-5"
+DEFAULT_RETRIEVE_K = 20
+DEFAULT_RERANK_N = 5
+DEFAULT_MODE = "dense"
+DEFAULT_REFORMULATE_THRESHOLD = 0.0
+DEFAULT_MAX_RETRIES = 2
+REFORMULATE_MODEL = "gpt-4o"
 
 REFORMULATE_SYSTEM = (
     "You rewrite user questions to improve retrieval from an internal "
@@ -47,6 +48,16 @@ class AgenticState(TypedDict, total=False):
     reranked: list[RetrievedChunk]
     answer: Answer
     iterations: int
+    # Per-call config
+    retrieve_k: int
+    rerank_n: int
+    mode: str
+    doc_types: list[str] | None
+    score_threshold: float | None
+    use_mmr: bool
+    mmr_lambda: float
+    reformulate_threshold: float
+    max_retries: int
 
 
 @dataclass
@@ -57,42 +68,58 @@ class PipelineResult:
     iterations: int
 
 
-_client: Anthropic | None = None
+_client: OpenAI | None = None
 
 
-def _get_client() -> Anthropic:
+def _get_client() -> OpenAI:
     global _client
     if _client is None:
-        _client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+        _client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
     return _client
 
 
 def _reformulate(original_query: str) -> str:
     print(f"[Agentic] Reformulating query: '{original_query}'")
     client = _get_client()
-    response = client.messages.create(
+    response = client.chat.completions.create(
         model=REFORMULATE_MODEL,
         max_tokens=256,
-        system=REFORMULATE_SYSTEM,
         messages=[
+            {"role": "system", "content": REFORMULATE_SYSTEM},
             {
                 "role": "user",
                 "content": REFORMULATE_USER.format(query=original_query),
-            }
+            },
         ],
     )
-    text = "".join(block.text for block in response.content if block.type == "text")
+    text = response.choices[0].message.content or ""
     new_query = text.strip().splitlines()[0] if text.strip() else original_query
     print(f"[Agentic] New query generated: '{new_query}'")
     return new_query
 
 
 def _retrieve_node(state: AgenticState) -> AgenticState:
-    return {"retrieved": retrieve(state["query"], k=RETRIEVE_K)}
+    return {
+        "retrieved": retrieve(
+            state["query"],
+            k=state.get("retrieve_k", DEFAULT_RETRIEVE_K),
+            mode=state.get("mode", DEFAULT_MODE),
+            doc_types=state.get("doc_types"),
+        )
+    }
 
 
 def _rerank_node(state: AgenticState) -> AgenticState:
-    return {"reranked": rerank(state["query"], state["retrieved"], n=RERANK_N)}
+    return {
+        "reranked": rerank(
+            state["query"],
+            state["retrieved"],
+            n=state.get("rerank_n", DEFAULT_RERANK_N),
+            score_threshold=state.get("score_threshold"),
+            use_mmr=state.get("use_mmr", False),
+            mmr_lambda=state.get("mmr_lambda", 0.7),
+        )
+    }
 
 
 def _reformulate_node(state: AgenticState) -> AgenticState:
@@ -110,21 +137,23 @@ def _synthesise_node(state: AgenticState) -> AgenticState:
 def _decide_after_rerank(state: AgenticState) -> str:
     reranked = state.get("reranked", [])
     iterations = state.get("iterations", 0)
+    threshold = state.get("reformulate_threshold", DEFAULT_REFORMULATE_THRESHOLD)
+    max_retries = state.get("max_retries", DEFAULT_MAX_RETRIES)
 
     if not reranked:
         print("[Router] No chunks retrieved. Routing to Synthesise.")
         return "synthesise"
 
     top_score = reranked[0].score
-    print(f"[Router] Iteration {iterations} | Top Rerank Score: {top_score:.3f} | Threshold: {SCORE_THRESHOLD}")
+    print(f"[Router] Iteration {iterations} | Top Rerank Score: {top_score:.3f} | Threshold: {threshold}")
 
-    if top_score >= SCORE_THRESHOLD:
+    if top_score >= threshold:
         print("[Router] Confidence threshold met. Routing to Synthesise.")
         return "synthesise"
-    if iterations >= MAX_RETRIES:
-        print(f"[Router] Max retries ({MAX_RETRIES}) reached. Routing to Synthesise.")
+    if iterations >= max_retries:
+        print(f"[Router] Max retries ({max_retries}) reached. Routing to Synthesise.")
         return "synthesise"
-        
+
     print("[Router] Confidence low. Routing to Reformulate.")
     return "reformulate"
 
@@ -158,12 +187,32 @@ def _get_graph():
     return _graph
 
 
-def run(query: str) -> PipelineResult:
+def run(
+    query: str,
+    retrieve_k: int = DEFAULT_RETRIEVE_K,
+    rerank_n: int = DEFAULT_RERANK_N,
+    mode: str = DEFAULT_MODE,
+    doc_types: list[str] | None = None,
+    score_threshold: float | None = None,
+    use_mmr: bool = False,
+    mmr_lambda: float = 0.7,
+    reformulate_threshold: float = DEFAULT_REFORMULATE_THRESHOLD,
+    max_retries: int = DEFAULT_MAX_RETRIES,
+) -> PipelineResult:
     final_state = _get_graph().invoke(
         {
             "original_query": query,
             "query": query,
             "iterations": 0,
+            "retrieve_k": retrieve_k,
+            "rerank_n": rerank_n,
+            "mode": mode,
+            "doc_types": doc_types,
+            "score_threshold": score_threshold,
+            "use_mmr": use_mmr,
+            "mmr_lambda": mmr_lambda,
+            "reformulate_threshold": reformulate_threshold,
+            "max_retries": max_retries,
         }
     )
     return PipelineResult(

@@ -10,7 +10,8 @@ from dataclasses import dataclass
 from shared.retrieve import retrieve, RetrievedChunk
 from shared.synthesise import synthesise, Answer
 
-TOP_K = 5
+DEFAULT_TOP_K = 5
+DEFAULT_MODE = "dense"
 
 
 @dataclass
@@ -21,8 +22,13 @@ class PipelineResult:
     iterations: int
 
 
-def run(query: str) -> PipelineResult:
-    chunks = retrieve(query, k=TOP_K)
+def run(
+    query: str,
+    top_k: int = DEFAULT_TOP_K,
+    mode: str = DEFAULT_MODE,
+    doc_types: list[str] | None = None,
+) -> PipelineResult:
+    chunks = retrieve(query, k=top_k, mode=mode, doc_types=doc_types)
     answer = synthesise(query, chunks)
     return PipelineResult(
         answer=answer,

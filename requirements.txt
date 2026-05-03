@@ -2,5 +2,6 @@ langgraph
 langchain-core
 chromadb
 sentence-transformers
-anthropic
+openai
 python-dotenv
+numpy

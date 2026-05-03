@@ -6,18 +6,30 @@
 
 | Pipeline | Description |
 |----------|-------------|
-| **Naive RAG** | Vector search → top-k chunks → Claude. Plain Python, no framework. |
+| **Naive RAG** | Vector search → top-k chunks → GPT-4o. Plain Python, no framework. |
 | **RAG Chain** | LangGraph linear graph: retrieve → rerank → synthesise. |
 | **Agentic RAG** | RAG Chain + conditional loop: if relevance is low, reformulate the query and retry (max 2 retries). |
 
-All three pipelines share the same ChromaDB vector store, document corpus, Claude model, and evaluation set.
+All three pipelines share the same ChromaDB vector store, document corpus, OpenAI model (gpt-4o), and evaluation set.
+
+## Retrieval modes
+
+`shared/retrieve.py` supports three modes (selectable per query / per evaluation):
+
+- **`dense`** — ChromaDB cosine over MiniLM embeddings (default).
+- **`bm25`** — Lexical Okapi BM25 over the same chunk corpus.
+- **`hybrid`** — Reciprocal Rank Fusion of dense + BM25.
+
+`shared/rerank.py` adds two optional improvements on top of plain top-N:
+- **Score threshold** — drop chunks whose cross-encoder score falls below a cutoff (instead of always padding to N).
+- **MMR** — Maximal Marginal Relevance selection for diversity, configurable via `mmr_lambda` (1.0 = pure relevance, 0.0 = pure diversity).
 
 ## Setup
 
 ### Prerequisites
 
 - Python 3.10+
-- An [Anthropic API key](https://console.anthropic.com/)
+- An [OpenAI API key](https://platform.openai.com/api-keys)
 
 ### 1. Clone and enter the repo
 
@@ -51,7 +63,7 @@ cp .env.example .env
 Open `.env` and replace the placeholder with your real key:
 
 ```
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
+OPENAI_API_KEY=your_openai_api_key_here
 ```
 
 ### 5. Build the vector store
@@ -65,35 +77,59 @@ This loads all documents from `docs/`, chunks and embeds them, and writes the Ch
 ## Usage
 
 ```bash
-python main.py ingest                                    # build the vector store
-python main.py query "your question" --pipeline naive    # naive | chain | agentic
-python main.py evaluate                                  # run all pipelines on the test set
-python main.py evaluate --write-results                  # also save per-query results to JSON
+# Build the vector store
+python main.py ingest
+
+# Single query (clean output by default; -v shows scores + token usage)
+python main.py query "your question" --pipeline agentic
+python main.py query "your question" --pipeline chain --mode hybrid -v
+
+# Tune retrieval per call
+python main.py query "your question" --pipeline chain --retrieve-k 10 --rerank-n 3 --mmr
+
+# Full evaluation (retrieval metrics + bootstrap CIs + permutation tests)
+python main.py evaluate
+python main.py evaluate --write-results            # also save JSON
+python main.py evaluate --judge --write-results    # add LLM-as-judge answer scoring
+
+# Top-K ablation — sweep RETRIEVE_K and report metrics as a function of K
+python main.py ablate --write-results
 ```
 
-The `query` command prints the answer, cited sources, the final ranked chunks with relevance scores, and (for `agentic`) how many reformulation iterations were used.
+The `query` command prints just the answer + sources by default. Pass `-v` / `--verbose` to also see the final ranked chunks, scores, and token counts.
 
 ## Evaluation Metrics
 
-All metrics are computed on each pipeline's **final reranked list** — the 5 chunks that are actually passed to the LLM for synthesis.
+All metrics are computed on each pipeline's **final reranked list** — the chunks actually passed to the LLM for synthesis.
 
-- **NDCG@5** — ranking quality (ideal DCG is the DCG of the observed relevance vector sorted descending)
+- **NDCG@5** — ranking quality
 - **MRR** — reciprocal rank of the first relevant chunk
-- **Precision@5** — fraction of the top 5 chunks whose source is in the query's `expected_doc_ids`
+- **Precision@5** — fraction of the top 5 whose source is in `expected_doc_ids`
+- **Recall@5** — fraction of expected documents covered within the top 5
+- **MAP** — mean average precision over the top-5 list
 
-A chunk is considered "relevant" iff its source file appears in the query's `expected_doc_ids`.
+The evaluation harness also reports:
+- **95% bootstrap CIs** around every per-pipeline mean (`n=1000` resamples).
+- **Paired permutation p-values** for every pipeline pair on every metric — so you can claim "agentic > chain on NDCG@5 at p=0.03" rather than just "0.04 higher".
+- **Average input/output tokens per query** (proxy for $ cost).
+- **Average wall-clock latency per query.**
+- **LLM-as-judge answer score (1–5)** when `--judge` is passed — uses GPT-4o to grade each answer against the ground truth, so you can measure whether better retrieval actually produces better answers, not just better-ranked chunks.
 
-Results are printed as an overall side-by-side table plus a per-difficulty breakdown (easy / medium / hard) and are optionally saved to `evaluation/results.json` via `--write-results`.
+A chunk is "relevant" iff its source file appears in the query's `expected_doc_ids`.
+
+## Ablations
+
+`python main.py ablate` sweeps `RETRIEVE_K ∈ {3, 5, 10, 15, 20, 30, 50}` for the chain and agentic pipelines and reports every retrieval metric at each setting plus average latency. The output makes the cost / quality trade-off explicit and provides empirical justification for the chosen `RETRIEVE_K`.
 
 ## Test Set
 
 `evaluation/test_set.json` contains 26 manually authored queries:
 
-- **10 easy** — single-doc factual lookups (e.g. "How many days of paid annual leave do full-time employees get?")
+- **10 easy** — single-doc factual lookups
 - **10 medium** — queries where the correct document must be selected from several plausible candidates
 - **6 hard** — multi-doc synthesis queries whose answer spans two or more source files
 
-Each entry has `id`, `difficulty`, `query`, `expected_doc_ids`, and a human-readable `ground_truth_answer`.
+Each entry has `id`, `difficulty`, `query`, `expected_doc_ids`, and a human-readable `ground_truth_answer` (used by the optional `--judge` evaluation).
 
 ## Repo Layout
 
@@ -103,16 +139,17 @@ CSS2-project/
 ├── ingest.py              # chunk + embed docs → ChromaDB
 ├── chroma_db/             # persisted vector store (built by ingest)
 ├── shared/
-│   ├── retrieve.py        # ChromaDB vector search
-│   ├── rerank.py          # cross-encoder re-ranking
-│   └── synthesise.py      # Claude API call
+│   ├── retrieve.py        # dense / BM25 / hybrid retrieval
+│   ├── rerank.py          # cross-encoder + optional MMR + score threshold
+│   └── synthesise.py      # OpenAI API call (returns token usage)
 ├── pipelines/
 │   ├── naive.py           # Pipeline 1: plain Python
 │   ├── rag_chain.py       # Pipeline 2: LangGraph linear
 │   └── agentic.py         # Pipeline 3: LangGraph + reformulation loop
 ├── evaluation/
 │   ├── test_set.json      # 26 query entries
-│   └── evaluate.py        # runs all pipelines + computes metrics
+│   ├── evaluate.py        # main eval harness (CIs, significance, judge, cost)
+│   └── ablation.py        # RETRIEVE_K sweep
 ├── main.py                # CLI entry point
 └── requirements.txt
 ```
@@ -120,5 +157,5 @@ CSS2-project/
 ## Requirements
 
 - Python 3.10+
-- `ANTHROPIC_API_KEY` env var
-- Everything runs locally except Claude API calls
+- `OPENAI_API_KEY` env var
+- Everything runs locally except OpenAI API calls
