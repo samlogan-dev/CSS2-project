@@ -76,6 +76,11 @@ def cmd_ablate(args: argparse.Namespace) -> None:
     run_ablation(write_results=args.write_results)
 
 
+def cmd_threshold_sweep(args: argparse.Namespace) -> None:
+    from evaluation.threshold_sweep import run_threshold_sweep
+    run_threshold_sweep(write_results=args.write_results)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="main.py",
@@ -116,6 +121,14 @@ def build_parser() -> argparse.ArgumentParser:
     p_ablate.add_argument("--write-results", action="store_true",
                           help="Write the sweep to evaluation/ablation_results.json")
     p_ablate.set_defaults(func=cmd_ablate)
+
+    p_thresh = subparsers.add_parser(
+        "threshold-sweep",
+        help="Sweep the agentic reformulation threshold τ and report quality vs cost.",
+    )
+    p_thresh.add_argument("--write-results", action="store_true",
+                          help="Write the sweep to evaluation/threshold_sweep_results.json")
+    p_thresh.set_defaults(func=cmd_threshold_sweep)
 
     return parser
 
