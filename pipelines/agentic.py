@@ -47,6 +47,7 @@ class AgenticState(TypedDict, total=False):
     reranked: list[RetrievedChunk]
     answer: Answer
     iterations: int
+    score_threshold: float
 
 
 @dataclass
@@ -107,12 +108,13 @@ def _synthesise_node(state: AgenticState) -> AgenticState:
 def _decide_after_rerank(state: AgenticState) -> str:
     reranked = state.get("reranked", [])
     iterations = state.get("iterations", 0)
+    threshold = state.get("score_threshold", SCORE_THRESHOLD)
 
     if not reranked:
         return "synthesise"
 
     top_score = reranked[0].score
-    if top_score >= SCORE_THRESHOLD:
+    if top_score >= threshold:
         return "synthesise"
     if iterations >= MAX_RETRIES:
         return "synthesise"
@@ -148,12 +150,13 @@ def _get_graph():
     return _graph
 
 
-def run(query: str) -> PipelineResult:
+def run(query: str, score_threshold: float = SCORE_THRESHOLD) -> PipelineResult:
     final_state = _get_graph().invoke(
         {
             "original_query": query,
             "query": query,
             "iterations": 0,
+            "score_threshold": score_threshold,
         }
     )
     return PipelineResult(

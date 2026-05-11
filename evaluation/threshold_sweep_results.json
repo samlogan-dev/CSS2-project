@@ -1,0 +1,1784 @@
+{
+  "-10.0": {
+    "overall": {
+      "ndcg@5": 0.9623774677629997,
+      "mrr": 0.9711538461538461,
+      "precision@5": 0.7307692307692307,
+      "avg_iterations": 0.0,
+      "avg_elapsed_s": 2.5446153846153843
+    },
+    "per_query": [
+      {
+        "id": "E01",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9047172294870751,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 18.81
+      },
+      {
+        "id": "E02",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 2.39
+      },
+      {
+        "id": "E03",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.58
+      },
+      {
+        "id": "E04",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.92
+      },
+      {
+        "id": "E05",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.62
+      },
+      {
+        "id": "E06",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9060254355346823,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 2.89
+      },
+      {
+        "id": "E07",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.41
+      },
+      {
+        "id": "E08",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.35
+      },
+      {
+        "id": "E09",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.27
+      },
+      {
+        "id": "E10",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.38
+      },
+      {
+        "id": "M01",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2
+        },
+        "iterations": 0,
+        "elapsed_s": 1.16
+      },
+      {
+        "id": "M02",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.3
+      },
+      {
+        "id": "M03",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.27
+      },
+      {
+        "id": "M04",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 2.31
+      },
+      {
+        "id": "M05",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.5012658353418871,
+          "mrr": 0.25,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.54
+      },
+      {
+        "id": "M06",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.94
+      },
+      {
+        "id": "M07",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.8854598815714874,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.54
+      },
+      {
+        "id": "M08",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.64
+      },
+      {
+        "id": "M09",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.83
+      },
+      {
+        "id": "M10",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.45
+      },
+      {
+        "id": "H01",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.95
+      },
+      {
+        "id": "H02",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 2.46
+      },
+      {
+        "id": "H03",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 2.12
+      },
+      {
+        "id": "H04",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 3.2
+      },
+      {
+        "id": "H05",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 0.9469024295259745,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 3.48
+      },
+      {
+        "id": "H06",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 2.35
+      }
+    ]
+  },
+  "-5.0": {
+    "overall": {
+      "ndcg@5": 0.9623774677629997,
+      "mrr": 0.9711538461538461,
+      "precision@5": 0.7307692307692307,
+      "avg_iterations": 0.0,
+      "avg_elapsed_s": 1.6380769230769232
+    },
+    "per_query": [
+      {
+        "id": "E01",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9047172294870751,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.13
+      },
+      {
+        "id": "E02",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.33
+      },
+      {
+        "id": "E03",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.02
+      },
+      {
+        "id": "E04",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.44
+      },
+      {
+        "id": "E05",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.43
+      },
+      {
+        "id": "E06",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9060254355346823,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.16
+      },
+      {
+        "id": "E07",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.31
+      },
+      {
+        "id": "E08",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.32
+      },
+      {
+        "id": "E09",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.75
+      },
+      {
+        "id": "E10",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.32
+      },
+      {
+        "id": "M01",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2
+        },
+        "iterations": 0,
+        "elapsed_s": 1.23
+      },
+      {
+        "id": "M02",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.12
+      },
+      {
+        "id": "M03",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.54
+      },
+      {
+        "id": "M04",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.74
+      },
+      {
+        "id": "M05",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.5012658353418871,
+          "mrr": 0.25,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.64
+      },
+      {
+        "id": "M06",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.61
+      },
+      {
+        "id": "M07",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.8854598815714874,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.5
+      },
+      {
+        "id": "M08",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.56
+      },
+      {
+        "id": "M09",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.27
+      },
+      {
+        "id": "M10",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.33
+      },
+      {
+        "id": "H01",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.87
+      },
+      {
+        "id": "H02",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.98
+      },
+      {
+        "id": "H03",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 2.14
+      },
+      {
+        "id": "H04",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 3.94
+      },
+      {
+        "id": "H05",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 0.9469024295259745,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 3.07
+      },
+      {
+        "id": "H06",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.84
+      }
+    ]
+  },
+  "-2.0": {
+    "overall": {
+      "ndcg@5": 0.9623774677629997,
+      "mrr": 0.9711538461538461,
+      "precision@5": 0.7307692307692307,
+      "avg_iterations": 0.0,
+      "avg_elapsed_s": 1.6976923076923076
+    },
+    "per_query": [
+      {
+        "id": "E01",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9047172294870751,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.11
+      },
+      {
+        "id": "E02",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.34
+      },
+      {
+        "id": "E03",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 0.98
+      },
+      {
+        "id": "E04",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.57
+      },
+      {
+        "id": "E05",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.83
+      },
+      {
+        "id": "E06",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9060254355346823,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.16
+      },
+      {
+        "id": "E07",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.1
+      },
+      {
+        "id": "E08",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.15
+      },
+      {
+        "id": "E09",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.33
+      },
+      {
+        "id": "E10",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.54
+      },
+      {
+        "id": "M01",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2
+        },
+        "iterations": 0,
+        "elapsed_s": 1.23
+      },
+      {
+        "id": "M02",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.54
+      },
+      {
+        "id": "M03",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.34
+      },
+      {
+        "id": "M04",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.83
+      },
+      {
+        "id": "M05",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.5012658353418871,
+          "mrr": 0.25,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.55
+      },
+      {
+        "id": "M06",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 2.24
+      },
+      {
+        "id": "M07",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.8854598815714874,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.74
+      },
+      {
+        "id": "M08",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.74
+      },
+      {
+        "id": "M09",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.33
+      },
+      {
+        "id": "M10",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.46
+      },
+      {
+        "id": "H01",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 2.07
+      },
+      {
+        "id": "H02",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 2.0
+      },
+      {
+        "id": "H03",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 2.62
+      },
+      {
+        "id": "H04",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 2.65
+      },
+      {
+        "id": "H05",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 0.9469024295259745,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 3.56
+      },
+      {
+        "id": "H06",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 2.13
+      }
+    ]
+  },
+  "0.0": {
+    "overall": {
+      "ndcg@5": 0.9706257318819455,
+      "mrr": 0.9807692307692307,
+      "precision@5": 0.7307692307692307,
+      "avg_iterations": 0.19230769230769232,
+      "avg_elapsed_s": 3.9538461538461536
+    },
+    "per_query": [
+      {
+        "id": "E01",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9047172294870751,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 5.0
+      },
+      {
+        "id": "E02",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.55
+      },
+      {
+        "id": "E03",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.0
+      },
+      {
+        "id": "E04",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.83
+      },
+      {
+        "id": "E05",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.57
+      },
+      {
+        "id": "E06",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9060254355346823,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.23
+      },
+      {
+        "id": "E07",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.13
+      },
+      {
+        "id": "E08",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.53
+      },
+      {
+        "id": "E09",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 9.73
+      },
+      {
+        "id": "E10",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.69
+      },
+      {
+        "id": "M01",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2
+        },
+        "iterations": 0,
+        "elapsed_s": 1.18
+      },
+      {
+        "id": "M02",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 2.56
+      },
+      {
+        "id": "M03",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.64
+      },
+      {
+        "id": "M04",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.74
+      },
+      {
+        "id": "M05",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.7328286204777911,
+          "mrr": 0.5,
+          "precision@5": 0.6
+        },
+        "iterations": 2,
+        "elapsed_s": 4.09
+      },
+      {
+        "id": "M06",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 2.15
+      },
+      {
+        "id": "M07",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.8854598815714874,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.43
+      },
+      {
+        "id": "M08",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.5
+      },
+      {
+        "id": "M09",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.78
+      },
+      {
+        "id": "M10",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.51
+      },
+      {
+        "id": "H01",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 2.08
+      },
+      {
+        "id": "H02",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 1,
+        "elapsed_s": 5.22
+      },
+      {
+        "id": "H03",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 2.68
+      },
+      {
+        "id": "H04",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 2.59
+      },
+      {
+        "id": "H05",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 0.9469024295259745,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 39.89
+      },
+      {
+        "id": "H06",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 2,
+        "elapsed_s": 4.5
+      }
+    ]
+  },
+  "2.0": {
+    "overall": {
+      "ndcg@5": 0.9782013430744405,
+      "mrr": 1.0,
+      "precision@5": 0.7384615384615384,
+      "avg_iterations": 0.3076923076923077,
+      "avg_elapsed_s": 2.565
+    },
+    "per_query": [
+      {
+        "id": "E01",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9047172294870751,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 4.57
+      },
+      {
+        "id": "E02",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.38
+      },
+      {
+        "id": "E03",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.1
+      },
+      {
+        "id": "E04",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 2.03
+      },
+      {
+        "id": "E05",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.48
+      },
+      {
+        "id": "E06",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9060254355346823,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.84
+      },
+      {
+        "id": "E07",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.67
+      },
+      {
+        "id": "E08",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.37
+      },
+      {
+        "id": "E09",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.72
+      },
+      {
+        "id": "E10",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.59
+      },
+      {
+        "id": "M01",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2
+        },
+        "iterations": 0,
+        "elapsed_s": 1.29
+      },
+      {
+        "id": "M02",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.55
+      },
+      {
+        "id": "M03",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.26
+      },
+      {
+        "id": "M04",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 2,
+        "elapsed_s": 7.09
+      },
+      {
+        "id": "M05",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9469024295259745,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 2,
+        "elapsed_s": 6.39
+      },
+      {
+        "id": "M06",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 2.44
+      },
+      {
+        "id": "M07",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.8854598815714874,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 2.21
+      },
+      {
+        "id": "M08",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 2.39
+      },
+      {
+        "id": "M09",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 2.02
+      },
+      {
+        "id": "M10",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.84
+      },
+      {
+        "id": "H01",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 1.84
+      },
+      {
+        "id": "H02",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 1,
+        "elapsed_s": 4.03
+      },
+      {
+        "id": "H03",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 1,
+        "elapsed_s": 3.72
+      },
+      {
+        "id": "H04",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 0,
+        "elapsed_s": 2.79
+      },
+      {
+        "id": "H05",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 0.9469024295259745,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 2.86
+      },
+      {
+        "id": "H06",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 2,
+        "elapsed_s": 4.22
+      }
+    ]
+  },
+  "5.0": {
+    "overall": {
+      "ndcg@5": 0.9664748131972508,
+      "mrr": 0.9807692307692307,
+      "precision@5": 0.7153846153846154,
+      "avg_iterations": 1.0,
+      "avg_elapsed_s": 3.2792307692307694
+    },
+    "per_query": [
+      {
+        "id": "E01",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9047172294870751,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.31
+      },
+      {
+        "id": "E02",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.43
+      },
+      {
+        "id": "E03",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.03
+      },
+      {
+        "id": "E04",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.56
+      },
+      {
+        "id": "E05",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 2.01
+      },
+      {
+        "id": "E06",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 0.6934264036172708,
+          "mrr": 0.5,
+          "precision@5": 0.4
+        },
+        "iterations": 2,
+        "elapsed_s": 3.83
+      },
+      {
+        "id": "E07",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 2,
+        "elapsed_s": 4.19
+      },
+      {
+        "id": "E08",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.57
+      },
+      {
+        "id": "E09",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.47
+      },
+      {
+        "id": "E10",
+        "difficulty": "easy",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 2,
+        "elapsed_s": 5.3
+      },
+      {
+        "id": "M01",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2
+        },
+        "iterations": 0,
+        "elapsed_s": 1.25
+      },
+      {
+        "id": "M02",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 2,
+        "elapsed_s": 4.21
+      },
+      {
+        "id": "M03",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 2,
+        "elapsed_s": 4.5
+      },
+      {
+        "id": "M04",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 2,
+        "elapsed_s": 6.57
+      },
+      {
+        "id": "M05",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.8529278650606567,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 2,
+        "elapsed_s": 5.12
+      },
+      {
+        "id": "M06",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.93
+      },
+      {
+        "id": "M07",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.8854598815714874,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 1.43
+      },
+      {
+        "id": "M08",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 2,
+        "elapsed_s": 4.2
+      },
+      {
+        "id": "M09",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        },
+        "iterations": 0,
+        "elapsed_s": 1.84
+      },
+      {
+        "id": "M10",
+        "difficulty": "medium",
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 0,
+        "elapsed_s": 1.44
+      },
+      {
+        "id": "H01",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 2,
+        "elapsed_s": 5.28
+      },
+      {
+        "id": "H02",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 2,
+        "elapsed_s": 5.26
+      },
+      {
+        "id": "H03",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 0.9674679834891693,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 2,
+        "elapsed_s": 4.49
+      },
+      {
+        "id": "H04",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        },
+        "iterations": 2,
+        "elapsed_s": 6.36
+      },
+      {
+        "id": "H05",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 0.9469024295259745,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        },
+        "iterations": 0,
+        "elapsed_s": 2.86
+      },
+      {
+        "id": "H06",
+        "difficulty": "hard",
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        },
+        "iterations": 2,
+        "elapsed_s": 4.82
+      }
+    ]
+  }
+}

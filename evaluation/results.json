@@ -1,0 +1,2384 @@
+{
+  "naive": {
+    "overall": {
+      "ndcg@5": 0.9422313876933519,
+      "mrr": 0.9551282051282051,
+      "precision@5": 0.6846153846153846,
+      "avg_iterations": 1.0,
+      "avg_elapsed_s": 1.9146153846153846
+    },
+    "by_difficulty": {
+      "easy": {
+        "ndcg@5": 0.9430604007508595,
+        "mrr": 0.95,
+        "precision@5": 0.6599999999999999,
+        "avg_iterations": 1.0,
+        "avg_elapsed_s": 1.948
+      },
+      "medium": {
+        "ndcg@5": 0.9144114495797628,
+        "mrr": 0.9333333333333333,
+        "precision@5": 0.58,
+        "avg_iterations": 1.0,
+        "avg_elapsed_s": 1.432
+      },
+      "hard": {
+        "ndcg@5": 0.9872162627868205,
+        "mrr": 1.0,
+        "precision@5": 0.9,
+        "avg_iterations": 1.0,
+        "avg_elapsed_s": 2.6633333333333336
+      }
+    },
+    "per_query": [
+      {
+        "id": "E01",
+        "difficulty": "easy",
+        "query": "How many days of paid annual leave do full-time employees get per year?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "faq-hr.md"
+        ],
+        "top_scores": [
+          0.662,
+          0.576,
+          0.525,
+          0.485,
+          0.485
+        ],
+        "iterations": 1,
+        "elapsed_s": 7.2,
+        "metrics": {
+          "ndcg@5": 0.9674679834891693,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E02",
+        "difficulty": "easy",
+        "query": "How many days of paid sick leave am I entitled to each year?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "faq-hr.md"
+        ],
+        "top_scores": [
+          0.712,
+          0.569,
+          0.556,
+          0.555,
+          0.533
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.26,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E03",
+        "difficulty": "easy",
+        "query": "What is the nightly accommodation cap for business travel in major cities?",
+        "expected_doc_ids": [
+          "policy-expenses.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-budget.md"
+        ],
+        "top_scores": [
+          0.574,
+          0.484,
+          0.396,
+          0.385,
+          0.378
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.08,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E04",
+        "difficulty": "easy",
+        "query": "How do I apply for annual leave?",
+        "expected_doc_ids": [
+          "faq-hr.md"
+        ],
+        "retrieved_sources": [
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          0.575,
+          0.531,
+          0.52,
+          0.508,
+          0.486
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.15,
+        "metrics": {
+          "ndcg@5": 0.8772153153380493,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        }
+      },
+      {
+        "id": "E05",
+        "difficulty": "easy",
+        "query": "What are the standard production deployment windows?",
+        "expected_doc_ids": [
+          "runbook-deploy.md"
+        ],
+        "retrieved_sources": [
+          "brief-project-sentinel.md",
+          "runbook-deploy.md",
+          "brief-project-meridian.md",
+          "runbook-deploy.md",
+          "runbook-deploy.md"
+        ],
+        "top_scores": [
+          0.471,
+          0.46,
+          0.443,
+          0.441,
+          0.41
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.51,
+        "metrics": {
+          "ndcg@5": 0.6797310500037655,
+          "mrr": 0.5,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E06",
+        "difficulty": "easy",
+        "query": "What is the response SLA for a P1 incident?",
+        "expected_doc_ids": [
+          "runbook-incident-response.md"
+        ],
+        "retrieved_sources": [
+          "runbook-incident-response.md",
+          "runbook-incident-response.md",
+          "runbook-incident-response.md",
+          "faq-it.md",
+          "runbook-incident-response.md"
+        ],
+        "top_scores": [
+          0.488,
+          0.484,
+          0.465,
+          0.462,
+          0.458
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.18,
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E07",
+        "difficulty": "easy",
+        "query": "When is the daily full database backup scheduled to run?",
+        "expected_doc_ids": [
+          "runbook-database-backup.md"
+        ],
+        "retrieved_sources": [
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "policy-remote-work.md",
+          "runbook-deploy.md"
+        ],
+        "top_scores": [
+          0.519,
+          0.45,
+          0.445,
+          0.379,
+          0.373
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.38,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E08",
+        "difficulty": "easy",
+        "query": "How many days of paid compassionate leave can I take per incident?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          0.688,
+          0.526,
+          0.52,
+          0.508,
+          0.506
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.13,
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E09",
+        "difficulty": "easy",
+        "query": "What are the core hours I must be reachable during?",
+        "expected_doc_ids": [
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "guide-onboarding.md",
+          "policy-remote-work.md",
+          "brief-project-atlas.md"
+        ],
+        "top_scores": [
+          0.681,
+          0.558,
+          0.476,
+          0.453,
+          0.364
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.07,
+        "metrics": {
+          "ndcg@5": 0.9674679834891693,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E10",
+        "difficulty": "easy",
+        "query": "What is the per-kilometre reimbursement rate for using my personal vehicle for business?",
+        "expected_doc_ids": [
+          "policy-expenses.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-remote-work.md"
+        ],
+        "top_scores": [
+          0.562,
+          0.465,
+          0.447,
+          0.442,
+          0.441
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.52,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "M01",
+        "difficulty": "medium",
+        "query": "How long do I have to submit an expense claim after the expense was incurred?",
+        "expected_doc_ids": [
+          "policy-expenses.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "faq-finance.md",
+          "faq-finance.md",
+          "policy-expenses.md",
+          "faq-finance.md"
+        ],
+        "top_scores": [
+          0.787,
+          0.601,
+          0.545,
+          0.527,
+          0.484
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.23,
+        "metrics": {
+          "ndcg@5": 0.8772153153380493,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        }
+      },
+      {
+        "id": "M02",
+        "difficulty": "medium",
+        "query": "What internet speed do I need at home to be eligible for remote work?",
+        "expected_doc_ids": [
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "policy-expenses.md",
+          "faq-it.md"
+        ],
+        "top_scores": [
+          0.579,
+          0.469,
+          0.416,
+          0.387,
+          0.386
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.53,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "M03",
+        "difficulty": "medium",
+        "query": "How long are database backups retained?",
+        "expected_doc_ids": [
+          "runbook-database-backup.md"
+        ],
+        "retrieved_sources": [
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-deploy.md",
+          "policy-leave.md",
+          "runbook-database-backup.md"
+        ],
+        "top_scores": [
+          0.454,
+          0.42,
+          0.344,
+          0.332,
+          0.309
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.28,
+        "metrics": {
+          "ndcg@5": 0.9469024295259745,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "M04",
+        "difficulty": "medium",
+        "query": "What is the process for declaring a critical production incident on Slack?",
+        "expected_doc_ids": [
+          "runbook-incident-response.md"
+        ],
+        "retrieved_sources": [
+          "runbook-incident-response.md",
+          "runbook-incident-response.md",
+          "runbook-incident-response.md",
+          "runbook-deploy.md",
+          "runbook-deploy.md"
+        ],
+        "top_scores": [
+          0.557,
+          0.529,
+          0.489,
+          0.469,
+          0.46
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.49,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "M05",
+        "difficulty": "medium",
+        "query": "How much notice do I need to give before taking a full week off?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "faq-hr.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          0.485,
+          0.454,
+          0.454,
+          0.442,
+          0.436
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.23,
+        "metrics": {
+          "ndcg@5": 0.5437713091520254,
+          "mrr": 0.3333333333333333,
+          "precision@5": 0.4
+        }
+      },
+      {
+        "id": "M06",
+        "difficulty": "medium",
+        "query": "What should I do if my work laptop is lost or stolen?",
+        "expected_doc_ids": [
+          "faq-it.md"
+        ],
+        "retrieved_sources": [
+          "faq-it.md",
+          "faq-it.md",
+          "faq-it.md",
+          "faq-it.md",
+          "faq-it.md"
+        ],
+        "top_scores": [
+          0.721,
+          0.453,
+          0.411,
+          0.409,
+          0.402
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.32,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "M07",
+        "difficulty": "medium",
+        "query": "How much can unused annual leave be carried into the next year?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          0.673,
+          0.606,
+          0.595,
+          0.575,
+          0.44
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.35,
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "M08",
+        "difficulty": "medium",
+        "query": "What version control tag format is used for production releases?",
+        "expected_doc_ids": [
+          "runbook-deploy.md"
+        ],
+        "retrieved_sources": [
+          "runbook-deploy.md",
+          "brief-project-sentinel.md",
+          "brief-project-compass.md",
+          "brief-project-meridian.md",
+          "brief-project-meridian.md"
+        ],
+        "top_scores": [
+          0.429,
+          0.357,
+          0.295,
+          0.294,
+          0.291
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.72,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2
+        }
+      },
+      {
+        "id": "M09",
+        "difficulty": "medium",
+        "query": "Can I use my personal laptop for work?",
+        "expected_doc_ids": [
+          "faq-it.md"
+        ],
+        "retrieved_sources": [
+          "faq-it.md",
+          "policy-remote-work.md",
+          "faq-legal.md",
+          "faq-it.md",
+          "faq-it.md"
+        ],
+        "top_scores": [
+          0.559,
+          0.448,
+          0.423,
+          0.393,
+          0.373
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.74,
+        "metrics": {
+          "ndcg@5": 0.8529278650606567,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "M10",
+        "difficulty": "medium",
+        "query": "What is the default hybrid working arrangement for employees?",
+        "expected_doc_ids": [
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "guide-onboarding.md",
+          "policy-remote-work.md",
+          "policy-code-of-conduct.md"
+        ],
+        "top_scores": [
+          0.59,
+          0.557,
+          0.466,
+          0.441,
+          0.416
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.43,
+        "metrics": {
+          "ndcg@5": 0.9674679834891693,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "H01",
+        "difficulty": "hard",
+        "query": "Before running a schema migration in production, what backup steps do I need to complete as part of the deployment process?",
+        "expected_doc_ids": [
+          "runbook-database-backup.md",
+          "runbook-deploy.md"
+        ],
+        "retrieved_sources": [
+          "runbook-database-backup.md",
+          "runbook-deploy.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md"
+        ],
+        "top_scores": [
+          0.659,
+          0.65,
+          0.569,
+          0.545,
+          0.485
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.97,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "H02",
+        "difficulty": "hard",
+        "query": "I'm a new employee. When can I start working remotely, and what are the eligibility requirements?",
+        "expected_doc_ids": [
+          "guide-onboarding.md",
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "guide-onboarding.md",
+          "policy-remote-work.md",
+          "policy-remote-work.md"
+        ],
+        "top_scores": [
+          0.599,
+          0.594,
+          0.574,
+          0.501,
+          0.499
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.34,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "H03",
+        "difficulty": "hard",
+        "query": "I'm setting up my home office. What is the allowance and how do I claim it back?",
+        "expected_doc_ids": [
+          "policy-expenses.md",
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "policy-remote-work.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md"
+        ],
+        "top_scores": [
+          0.588,
+          0.562,
+          0.515,
+          0.456,
+          0.451
+        ],
+        "iterations": 1,
+        "elapsed_s": 4.22,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "H04",
+        "difficulty": "hard",
+        "query": "How do I report a concern about a colleague's behaviour and what happens after I report it?",
+        "expected_doc_ids": [
+          "faq-hr.md",
+          "policy-code-of-conduct.md"
+        ],
+        "retrieved_sources": [
+          "faq-hr.md",
+          "policy-code-of-conduct.md",
+          "runbook-incident-response.md",
+          "policy-code-of-conduct.md",
+          "policy-code-of-conduct.md"
+        ],
+        "top_scores": [
+          0.64,
+          0.503,
+          0.365,
+          0.348,
+          0.346
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.33,
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "H05",
+        "difficulty": "hard",
+        "query": "My account has been compromised \u2014 what is the immediate process and how is this handled as a security incident?",
+        "expected_doc_ids": [
+          "faq-it.md",
+          "runbook-incident-response.md"
+        ],
+        "retrieved_sources": [
+          "faq-it.md",
+          "faq-it.md",
+          "faq-legal.md",
+          "faq-it.md",
+          "faq-legal.md"
+        ],
+        "top_scores": [
+          0.567,
+          0.523,
+          0.39,
+          0.384,
+          0.359
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.59,
+        "metrics": {
+          "ndcg@5": 0.9674679834891693,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "H06",
+        "difficulty": "hard",
+        "query": "I'm expecting a baby. Who do I contact about parental leave and how much notice do I need to give?",
+        "expected_doc_ids": [
+          "faq-hr.md",
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "faq-hr.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          0.628,
+          0.573,
+          0.555,
+          0.551,
+          0.395
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.53,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      }
+    ]
+  },
+  "chain": {
+    "overall": {
+      "ndcg@5": 0.9623774677629997,
+      "mrr": 0.9711538461538461,
+      "precision@5": 0.7307692307692307,
+      "avg_iterations": 1.0,
+      "avg_elapsed_s": 2.0242307692307695
+    },
+    "by_difficulty": {
+      "easy": {
+        "ndcg@5": 0.9749464340210199,
+        "mrr": 1.0,
+        "precision@5": 0.74,
+        "avg_iterations": 1.0,
+        "avg_elapsed_s": 2.337
+      },
+      "medium": {
+        "ndcg@5": 0.9325447392101817,
+        "mrr": 0.925,
+        "precision@5": 0.62,
+        "avg_iterations": 1.0,
+        "avg_elapsed_s": 1.534
+      },
+      "hard": {
+        "ndcg@5": 0.9911504049209957,
+        "mrr": 1.0,
+        "precision@5": 0.9,
+        "avg_iterations": 1.0,
+        "avg_elapsed_s": 2.32
+      }
+    },
+    "per_query": [
+      {
+        "id": "E01",
+        "difficulty": "easy",
+        "query": "How many days of paid annual leave do full-time employees get per year?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          9.967,
+          7.279,
+          3.347,
+          1.723,
+          1.501
+        ],
+        "iterations": 1,
+        "elapsed_s": 10.43,
+        "metrics": {
+          "ndcg@5": 0.9047172294870751,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E02",
+        "difficulty": "easy",
+        "query": "How many days of paid sick leave am I entitled to each year?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "faq-hr.md"
+        ],
+        "top_scores": [
+          8.81,
+          5.618,
+          4.83,
+          2.295,
+          0.048
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.96,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E03",
+        "difficulty": "easy",
+        "query": "What is the nightly accommodation cap for business travel in major cities?",
+        "expected_doc_ids": [
+          "policy-expenses.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-budget.md",
+          "policy-expenses.md"
+        ],
+        "top_scores": [
+          7.811,
+          -4.211,
+          -7.937,
+          -10.328,
+          -10.436
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.12,
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E04",
+        "difficulty": "easy",
+        "query": "How do I apply for annual leave?",
+        "expected_doc_ids": [
+          "faq-hr.md"
+        ],
+        "retrieved_sources": [
+          "faq-hr.md",
+          "faq-hr.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          9.113,
+          2.987,
+          2.897,
+          2.405,
+          2.222
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.39,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E05",
+        "difficulty": "easy",
+        "query": "What are the standard production deployment windows?",
+        "expected_doc_ids": [
+          "runbook-deploy.md"
+        ],
+        "retrieved_sources": [
+          "runbook-deploy.md",
+          "runbook-deploy.md",
+          "brief-project-sentinel.md",
+          "runbook-deploy.md",
+          "runbook-deploy.md"
+        ],
+        "top_scores": [
+          5.132,
+          3.741,
+          3.152,
+          2.576,
+          -4.642
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.37,
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E06",
+        "difficulty": "easy",
+        "query": "What is the response SLA for a P1 incident?",
+        "expected_doc_ids": [
+          "runbook-incident-response.md"
+        ],
+        "retrieved_sources": [
+          "runbook-incident-response.md",
+          "brief-project-sentinel.md",
+          "runbook-incident-response.md",
+          "runbook-incident-response.md",
+          "brief-project-sentinel.md"
+        ],
+        "top_scores": [
+          3.528,
+          2.183,
+          1.626,
+          1.614,
+          0.571
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.13,
+        "metrics": {
+          "ndcg@5": 0.9060254355346823,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E07",
+        "difficulty": "easy",
+        "query": "When is the daily full database backup scheduled to run?",
+        "expected_doc_ids": [
+          "runbook-database-backup.md"
+        ],
+        "retrieved_sources": [
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md"
+        ],
+        "top_scores": [
+          4.486,
+          1.942,
+          1.337,
+          -1.612,
+          -2.425
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.18,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "E08",
+        "difficulty": "easy",
+        "query": "How many days of paid compassionate leave can I take per incident?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md"
+        ],
+        "top_scores": [
+          7.094,
+          -1.102,
+          -1.108,
+          -1.588,
+          -1.673
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.69,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E09",
+        "difficulty": "easy",
+        "query": "What are the core hours I must be reachable during?",
+        "expected_doc_ids": [
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "policy-expenses.md",
+          "brief-project-atlas.md",
+          "brief-project-nova.md"
+        ],
+        "top_scores": [
+          8.184,
+          1.587,
+          -7.663,
+          -10.261,
+          -10.43
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.69,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        }
+      },
+      {
+        "id": "E10",
+        "difficulty": "easy",
+        "query": "What is the per-kilometre reimbursement rate for using my personal vehicle for business?",
+        "expected_doc_ids": [
+          "policy-expenses.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md"
+        ],
+        "top_scores": [
+          4.71,
+          -6.63,
+          -8.207,
+          -8.771,
+          -9.328
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.41,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "M01",
+        "difficulty": "medium",
+        "query": "How long do I have to submit an expense claim after the expense was incurred?",
+        "expected_doc_ids": [
+          "policy-expenses.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "faq-finance.md",
+          "faq-finance.md",
+          "faq-finance.md",
+          "policy-remote-work.md"
+        ],
+        "top_scores": [
+          8.559,
+          -0.16,
+          -0.27,
+          -0.522,
+          -1.628
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.25,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2
+        }
+      },
+      {
+        "id": "M02",
+        "difficulty": "medium",
+        "query": "What internet speed do I need at home to be eligible for remote work?",
+        "expected_doc_ids": [
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "faq-it.md",
+          "policy-remote-work.md"
+        ],
+        "top_scores": [
+          3.755,
+          -2.576,
+          -3.163,
+          -4.657,
+          -5.093
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.22,
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "M03",
+        "difficulty": "medium",
+        "query": "How long are database backups retained?",
+        "expected_doc_ids": [
+          "runbook-database-backup.md"
+        ],
+        "retrieved_sources": [
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md"
+        ],
+        "top_scores": [
+          3.425,
+          2.257,
+          -1.913,
+          -2.539,
+          -3.45
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.19,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "M04",
+        "difficulty": "medium",
+        "query": "What is the process for declaring a critical production incident on Slack?",
+        "expected_doc_ids": [
+          "runbook-incident-response.md"
+        ],
+        "retrieved_sources": [
+          "runbook-incident-response.md",
+          "runbook-incident-response.md",
+          "runbook-incident-response.md",
+          "runbook-deploy.md",
+          "brief-project-sentinel.md"
+        ],
+        "top_scores": [
+          1.431,
+          0.484,
+          -0.762,
+          -3.809,
+          -4.542
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.05,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "M05",
+        "difficulty": "medium",
+        "query": "How much notice do I need to give before taking a full week off?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "faq-hr.md",
+          "guide-onboarding.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          -0.726,
+          -4.213,
+          -4.385,
+          -5.03,
+          -5.738
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.74,
+        "metrics": {
+          "ndcg@5": 0.5012658353418871,
+          "mrr": 0.25,
+          "precision@5": 0.4
+        }
+      },
+      {
+        "id": "M06",
+        "difficulty": "medium",
+        "query": "What should I do if my work laptop is lost or stolen?",
+        "expected_doc_ids": [
+          "faq-it.md"
+        ],
+        "retrieved_sources": [
+          "faq-it.md",
+          "faq-it.md",
+          "faq-it.md",
+          "policy-remote-work.md",
+          "guide-it-setup.md"
+        ],
+        "top_scores": [
+          7.627,
+          4.335,
+          1.138,
+          0.08,
+          -1.373
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.95,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "M07",
+        "difficulty": "medium",
+        "query": "How much can unused annual leave be carried into the next year?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          6.897,
+          6.884,
+          -0.309,
+          -0.615,
+          -3.729
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.33,
+        "metrics": {
+          "ndcg@5": 0.8854598815714874,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "M08",
+        "difficulty": "medium",
+        "query": "What version control tag format is used for production releases?",
+        "expected_doc_ids": [
+          "runbook-deploy.md"
+        ],
+        "retrieved_sources": [
+          "runbook-deploy.md",
+          "runbook-deploy.md",
+          "runbook-deploy.md",
+          "runbook-deploy.md",
+          "brief-project-sentinel.md"
+        ],
+        "top_scores": [
+          2.491,
+          -3.776,
+          -6.162,
+          -8.691,
+          -9.32
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.53,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "M09",
+        "difficulty": "medium",
+        "query": "Can I use my personal laptop for work?",
+        "expected_doc_ids": [
+          "faq-it.md"
+        ],
+        "retrieved_sources": [
+          "faq-it.md",
+          "faq-it.md",
+          "policy-remote-work.md",
+          "faq-legal.md",
+          "guide-it-setup.md"
+        ],
+        "top_scores": [
+          10.125,
+          6.771,
+          -6.261,
+          -6.457,
+          -7.72
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.71,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        }
+      },
+      {
+        "id": "M10",
+        "difficulty": "medium",
+        "query": "What is the default hybrid working arrangement for employees?",
+        "expected_doc_ids": [
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "guide-onboarding.md",
+          "policy-remote-work.md",
+          "policy-remote-work.md"
+        ],
+        "top_scores": [
+          7.836,
+          3.4,
+          0.756,
+          -0.654,
+          -3.255
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.37,
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "H01",
+        "difficulty": "hard",
+        "query": "Before running a schema migration in production, what backup steps do I need to complete as part of the deployment process?",
+        "expected_doc_ids": [
+          "runbook-database-backup.md",
+          "runbook-deploy.md"
+        ],
+        "retrieved_sources": [
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-deploy.md",
+          "runbook-deploy.md"
+        ],
+        "top_scores": [
+          3.977,
+          2.367,
+          1.922,
+          0.795,
+          -0.021
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.46,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "H02",
+        "difficulty": "hard",
+        "query": "I'm a new employee. When can I start working remotely, and what are the eligibility requirements?",
+        "expected_doc_ids": [
+          "guide-onboarding.md",
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "guide-onboarding.md",
+          "policy-remote-work.md"
+        ],
+        "top_scores": [
+          -0.1,
+          -0.476,
+          -0.966,
+          -1.244,
+          -1.488
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.35,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "H03",
+        "difficulty": "hard",
+        "query": "I'm setting up my home office. What is the allowance and how do I claim it back?",
+        "expected_doc_ids": [
+          "policy-expenses.md",
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "policy-remote-work.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "faq-finance.md"
+        ],
+        "top_scores": [
+          0.637,
+          -1.839,
+          -3.926,
+          -5.469,
+          -7.206
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.21,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "H04",
+        "difficulty": "hard",
+        "query": "How do I report a concern about a colleague's behaviour and what happens after I report it?",
+        "expected_doc_ids": [
+          "faq-hr.md",
+          "policy-code-of-conduct.md"
+        ],
+        "retrieved_sources": [
+          "faq-hr.md",
+          "policy-code-of-conduct.md",
+          "policy-code-of-conduct.md",
+          "policy-code-of-conduct.md",
+          "policy-code-of-conduct.md"
+        ],
+        "top_scores": [
+          4.1,
+          1.965,
+          -4.106,
+          -6.513,
+          -6.891
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.5,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "H05",
+        "difficulty": "hard",
+        "query": "My account has been compromised \u2014 what is the immediate process and how is this handled as a security incident?",
+        "expected_doc_ids": [
+          "faq-it.md",
+          "runbook-incident-response.md"
+        ],
+        "retrieved_sources": [
+          "faq-it.md",
+          "faq-it.md",
+          "faq-legal.md",
+          "brief-project-sentinel.md",
+          "faq-it.md"
+        ],
+        "top_scores": [
+          6.033,
+          4.602,
+          -2.619,
+          -3.143,
+          -4.816
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.56,
+        "metrics": {
+          "ndcg@5": 0.9469024295259745,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "H06",
+        "difficulty": "hard",
+        "query": "I'm expecting a baby. Who do I contact about parental leave and how much notice do I need to give?",
+        "expected_doc_ids": [
+          "faq-hr.md",
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "faq-hr.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md"
+        ],
+        "top_scores": [
+          -0.773,
+          -3.462,
+          -4.372,
+          -4.693,
+          -4.883
+        ],
+        "iterations": 1,
+        "elapsed_s": 1.84,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      }
+    ]
+  },
+  "agentic": {
+    "overall": {
+      "ndcg@5": 0.977894829076276,
+      "mrr": 1.0,
+      "precision@5": 0.7307692307692307,
+      "avg_iterations": 0.15384615384615385,
+      "avg_elapsed_s": 1.9884615384615385
+    },
+    "by_difficulty": {
+      "easy": {
+        "ndcg@5": 0.9749464340210199,
+        "mrr": 1.0,
+        "precision@5": 0.74,
+        "avg_iterations": 0.0,
+        "avg_elapsed_s": 1.548
+      },
+      "medium": {
+        "ndcg@5": 0.9728898786247004,
+        "mrr": 1.0,
+        "precision@5": 0.66,
+        "avg_iterations": 0.1,
+        "avg_elapsed_s": 1.6940000000000002
+      },
+      "hard": {
+        "ndcg@5": 0.9911504049209957,
+        "mrr": 1.0,
+        "precision@5": 0.8333333333333334,
+        "avg_iterations": 0.5,
+        "avg_elapsed_s": 3.2133333333333334
+      }
+    },
+    "per_query": [
+      {
+        "id": "E01",
+        "difficulty": "easy",
+        "query": "How many days of paid annual leave do full-time employees get per year?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          9.967,
+          7.279,
+          3.347,
+          1.723,
+          1.501
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.13,
+        "metrics": {
+          "ndcg@5": 0.9047172294870751,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E02",
+        "difficulty": "easy",
+        "query": "How many days of paid sick leave am I entitled to each year?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "faq-hr.md"
+        ],
+        "top_scores": [
+          8.81,
+          5.618,
+          4.83,
+          2.295,
+          0.048
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.53,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E03",
+        "difficulty": "easy",
+        "query": "What is the nightly accommodation cap for business travel in major cities?",
+        "expected_doc_ids": [
+          "policy-expenses.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-budget.md",
+          "policy-expenses.md"
+        ],
+        "top_scores": [
+          7.811,
+          -4.211,
+          -7.937,
+          -10.328,
+          -10.436
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.13,
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E04",
+        "difficulty": "easy",
+        "query": "How do I apply for annual leave?",
+        "expected_doc_ids": [
+          "faq-hr.md"
+        ],
+        "retrieved_sources": [
+          "faq-hr.md",
+          "faq-hr.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          9.113,
+          2.987,
+          2.897,
+          2.405,
+          2.222
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.41,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E05",
+        "difficulty": "easy",
+        "query": "What are the standard production deployment windows?",
+        "expected_doc_ids": [
+          "runbook-deploy.md"
+        ],
+        "retrieved_sources": [
+          "runbook-deploy.md",
+          "runbook-deploy.md",
+          "brief-project-sentinel.md",
+          "runbook-deploy.md",
+          "runbook-deploy.md"
+        ],
+        "top_scores": [
+          5.132,
+          3.741,
+          3.152,
+          2.576,
+          -4.642
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.65,
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E06",
+        "difficulty": "easy",
+        "query": "What is the response SLA for a P1 incident?",
+        "expected_doc_ids": [
+          "runbook-incident-response.md"
+        ],
+        "retrieved_sources": [
+          "runbook-incident-response.md",
+          "brief-project-sentinel.md",
+          "runbook-incident-response.md",
+          "runbook-incident-response.md",
+          "brief-project-sentinel.md"
+        ],
+        "top_scores": [
+          3.528,
+          2.183,
+          1.626,
+          1.614,
+          0.571
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.57,
+        "metrics": {
+          "ndcg@5": 0.9060254355346823,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "E07",
+        "difficulty": "easy",
+        "query": "When is the daily full database backup scheduled to run?",
+        "expected_doc_ids": [
+          "runbook-database-backup.md"
+        ],
+        "retrieved_sources": [
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md"
+        ],
+        "top_scores": [
+          4.486,
+          1.942,
+          1.337,
+          -1.612,
+          -2.425
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.43,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "E08",
+        "difficulty": "easy",
+        "query": "How many days of paid compassionate leave can I take per incident?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md"
+        ],
+        "top_scores": [
+          7.094,
+          -1.102,
+          -1.108,
+          -1.588,
+          -1.673
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.73,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "E09",
+        "difficulty": "easy",
+        "query": "What are the core hours I must be reachable during?",
+        "expected_doc_ids": [
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "policy-expenses.md",
+          "brief-project-atlas.md",
+          "brief-project-nova.md"
+        ],
+        "top_scores": [
+          8.184,
+          1.587,
+          -7.663,
+          -10.261,
+          -10.43
+        ],
+        "iterations": 0,
+        "elapsed_s": 2.12,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        }
+      },
+      {
+        "id": "E10",
+        "difficulty": "easy",
+        "query": "What is the per-kilometre reimbursement rate for using my personal vehicle for business?",
+        "expected_doc_ids": [
+          "policy-expenses.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "policy-expenses.md"
+        ],
+        "top_scores": [
+          4.71,
+          -6.63,
+          -8.207,
+          -8.771,
+          -9.328
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.78,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "M01",
+        "difficulty": "medium",
+        "query": "How long do I have to submit an expense claim after the expense was incurred?",
+        "expected_doc_ids": [
+          "policy-expenses.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "faq-finance.md",
+          "faq-finance.md",
+          "faq-finance.md",
+          "policy-remote-work.md"
+        ],
+        "top_scores": [
+          8.559,
+          -0.16,
+          -0.27,
+          -0.522,
+          -1.628
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.52,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2
+        }
+      },
+      {
+        "id": "M02",
+        "difficulty": "medium",
+        "query": "What internet speed do I need at home to be eligible for remote work?",
+        "expected_doc_ids": [
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "faq-it.md",
+          "policy-remote-work.md"
+        ],
+        "top_scores": [
+          3.755,
+          -2.576,
+          -3.163,
+          -4.657,
+          -5.093
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.53,
+        "metrics": {
+          "ndcg@5": 0.9828920819566879,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "M03",
+        "difficulty": "medium",
+        "query": "How long are database backups retained?",
+        "expected_doc_ids": [
+          "runbook-database-backup.md"
+        ],
+        "retrieved_sources": [
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md"
+        ],
+        "top_scores": [
+          3.425,
+          2.257,
+          -1.913,
+          -2.539,
+          -3.45
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.23,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "M04",
+        "difficulty": "medium",
+        "query": "What is the process for declaring a critical production incident on Slack?",
+        "expected_doc_ids": [
+          "runbook-incident-response.md"
+        ],
+        "retrieved_sources": [
+          "runbook-incident-response.md",
+          "runbook-incident-response.md",
+          "runbook-incident-response.md",
+          "runbook-deploy.md",
+          "brief-project-sentinel.md"
+        ],
+        "top_scores": [
+          1.431,
+          0.484,
+          -0.762,
+          -3.809,
+          -4.542
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.85,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "M05",
+        "difficulty": "medium",
+        "query": "How much notice do I need to give before taking a full week off?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "policy-leave.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          0.102,
+          -2.891,
+          -3.12,
+          -4.0,
+          -4.452
+        ],
+        "iterations": 1,
+        "elapsed_s": 2.97,
+        "metrics": {
+          "ndcg@5": 0.9047172294870751,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "M06",
+        "difficulty": "medium",
+        "query": "What should I do if my work laptop is lost or stolen?",
+        "expected_doc_ids": [
+          "faq-it.md"
+        ],
+        "retrieved_sources": [
+          "faq-it.md",
+          "faq-it.md",
+          "faq-it.md",
+          "policy-remote-work.md",
+          "guide-it-setup.md"
+        ],
+        "top_scores": [
+          7.627,
+          4.335,
+          1.138,
+          0.08,
+          -1.373
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.93,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "M07",
+        "difficulty": "medium",
+        "query": "How much can unused annual leave be carried into the next year?",
+        "expected_doc_ids": [
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "policy-leave.md"
+        ],
+        "top_scores": [
+          6.897,
+          6.884,
+          -0.309,
+          -0.615,
+          -3.729
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.3,
+        "metrics": {
+          "ndcg@5": 0.8854598815714874,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "M08",
+        "difficulty": "medium",
+        "query": "What version control tag format is used for production releases?",
+        "expected_doc_ids": [
+          "runbook-deploy.md"
+        ],
+        "retrieved_sources": [
+          "runbook-deploy.md",
+          "runbook-deploy.md",
+          "runbook-deploy.md",
+          "runbook-deploy.md",
+          "brief-project-sentinel.md"
+        ],
+        "top_scores": [
+          2.491,
+          -3.776,
+          -6.162,
+          -8.691,
+          -9.32
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.79,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "M09",
+        "difficulty": "medium",
+        "query": "Can I use my personal laptop for work?",
+        "expected_doc_ids": [
+          "faq-it.md"
+        ],
+        "retrieved_sources": [
+          "faq-it.md",
+          "faq-it.md",
+          "policy-remote-work.md",
+          "faq-legal.md",
+          "guide-it-setup.md"
+        ],
+        "top_scores": [
+          10.125,
+          6.771,
+          -6.261,
+          -6.457,
+          -7.72
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.54,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4
+        }
+      },
+      {
+        "id": "M10",
+        "difficulty": "medium",
+        "query": "What is the default hybrid working arrangement for employees?",
+        "expected_doc_ids": [
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "guide-onboarding.md",
+          "policy-remote-work.md",
+          "policy-remote-work.md"
+        ],
+        "top_scores": [
+          7.836,
+          3.4,
+          0.756,
+          -0.654,
+          -3.255
+        ],
+        "iterations": 0,
+        "elapsed_s": 1.28,
+        "metrics": {
+          "ndcg@5": 0.9558295932317544,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "H01",
+        "difficulty": "hard",
+        "query": "Before running a schema migration in production, what backup steps do I need to complete as part of the deployment process?",
+        "expected_doc_ids": [
+          "runbook-database-backup.md",
+          "runbook-deploy.md"
+        ],
+        "retrieved_sources": [
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-database-backup.md",
+          "runbook-deploy.md",
+          "runbook-deploy.md"
+        ],
+        "top_scores": [
+          3.977,
+          2.367,
+          1.922,
+          0.795,
+          -0.021
+        ],
+        "iterations": 0,
+        "elapsed_s": 2.2,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "H02",
+        "difficulty": "hard",
+        "query": "I'm a new employee. When can I start working remotely, and what are the eligibility requirements?",
+        "expected_doc_ids": [
+          "guide-onboarding.md",
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "guide-onboarding.md",
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "policy-remote-work.md",
+          "policy-expenses.md"
+        ],
+        "top_scores": [
+          3.048,
+          2.252,
+          1.856,
+          1.067,
+          0.815
+        ],
+        "iterations": 1,
+        "elapsed_s": 3.79,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "H03",
+        "difficulty": "hard",
+        "query": "I'm setting up my home office. What is the allowance and how do I claim it back?",
+        "expected_doc_ids": [
+          "policy-expenses.md",
+          "policy-remote-work.md"
+        ],
+        "retrieved_sources": [
+          "policy-expenses.md",
+          "policy-remote-work.md",
+          "policy-expenses.md",
+          "policy-expenses.md",
+          "faq-finance.md"
+        ],
+        "top_scores": [
+          0.637,
+          -1.839,
+          -3.926,
+          -5.469,
+          -7.206
+        ],
+        "iterations": 0,
+        "elapsed_s": 2.66,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      },
+      {
+        "id": "H04",
+        "difficulty": "hard",
+        "query": "How do I report a concern about a colleague's behaviour and what happens after I report it?",
+        "expected_doc_ids": [
+          "faq-hr.md",
+          "policy-code-of-conduct.md"
+        ],
+        "retrieved_sources": [
+          "faq-hr.md",
+          "policy-code-of-conduct.md",
+          "policy-code-of-conduct.md",
+          "policy-code-of-conduct.md",
+          "policy-code-of-conduct.md"
+        ],
+        "top_scores": [
+          4.1,
+          1.965,
+          -4.106,
+          -6.513,
+          -6.891
+        ],
+        "iterations": 0,
+        "elapsed_s": 2.46,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      {
+        "id": "H05",
+        "difficulty": "hard",
+        "query": "My account has been compromised \u2014 what is the immediate process and how is this handled as a security incident?",
+        "expected_doc_ids": [
+          "faq-it.md",
+          "runbook-incident-response.md"
+        ],
+        "retrieved_sources": [
+          "faq-it.md",
+          "faq-it.md",
+          "faq-legal.md",
+          "brief-project-sentinel.md",
+          "faq-it.md"
+        ],
+        "top_scores": [
+          6.033,
+          4.602,
+          -2.619,
+          -3.143,
+          -4.816
+        ],
+        "iterations": 0,
+        "elapsed_s": 3.6,
+        "metrics": {
+          "ndcg@5": 0.9469024295259745,
+          "mrr": 1.0,
+          "precision@5": 0.6
+        }
+      },
+      {
+        "id": "H06",
+        "difficulty": "hard",
+        "query": "I'm expecting a baby. Who do I contact about parental leave and how much notice do I need to give?",
+        "expected_doc_ids": [
+          "faq-hr.md",
+          "policy-leave.md"
+        ],
+        "retrieved_sources": [
+          "policy-leave.md",
+          "policy-leave.md",
+          "faq-hr.md",
+          "faq-hr.md",
+          "policy-code-of-conduct.md"
+        ],
+        "top_scores": [
+          -3.196,
+          -3.455,
+          -3.735,
+          -3.998,
+          -5.364
+        ],
+        "iterations": 2,
+        "elapsed_s": 4.57,
+        "metrics": {
+          "ndcg@5": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8
+        }
+      }
+    ]
+  }
+}
